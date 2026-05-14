@@ -249,6 +249,7 @@ function tileAt(px,py){
 // ── INPUT ──
 const keys={};
 document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT') return;
   keys[e.key]=true;
   if((e.key==='e'||e.key==='E'||e.key===' ')&&!dlg.active) tryInteract();
   if(dlg.active&&dlg.phase==='opts'&&e.key>='1'&&e.key<='4') pickOpt(+e.key-1);
