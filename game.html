@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Day ARIA Arrived</title>
 <style>
-/* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -18,11 +17,11 @@
   --aria: #8b7cf8;
   --aria-glow: rgba(139,124,248,0.2);
   --work-c: #3ec9d6;
-  --work-d: rgba(62,201,214,0.12);
+  --work-d: rgba(62,201,214,0.13);
   --friend-c: #f5855a;
-  --friend-d: rgba(245,133,90,0.12);
+  --friend-d: rgba(245,133,90,0.13);
   --self-c: #a78bfa;
-  --self-d: rgba(167,139,250,0.12);
+  --self-d: rgba(167,139,250,0.13);
   --border: rgba(255,255,255,0.07);
   --border-h: rgba(255,255,255,0.16);
   --r: 14px;
@@ -36,13 +35,10 @@ body {
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex; flex-direction: column; align-items: center;
   line-height: 1.6;
 }
 
-/* ===== PROGRESS ===== */
 #progress-track {
   position: fixed; top: 0; left: 0; right: 0;
   height: 2px; background: rgba(255,255,255,0.04); z-index: 200;
@@ -53,14 +49,11 @@ body {
   transition: width 0.7s cubic-bezier(0.4,0,0.2,1);
 }
 
-/* ===== APP SHELL ===== */
 #app {
-  width: 100%; max-width: 660px;
-  min-height: 100vh; display: flex;
-  flex-direction: column; padding: 0 24px 80px;
+  width: 100%; max-width: 660px; min-height: 100vh;
+  display: flex; flex-direction: column; padding: 0 24px 80px;
 }
 
-/* ===== SCREEN ===== */
 .screen {
   flex: 1; display: flex; flex-direction: column;
   justify-content: center; padding: 48px 0;
@@ -72,7 +65,6 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== TYPE ===== */
 .eyebrow {
   font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.12em; text-transform: uppercase;
@@ -96,7 +88,7 @@ body {
   margin-bottom: 28px; line-height: 1.6;
 }
 
-/* ===== ARIA GLYPH ===== */
+/* ARIA glyph */
 .glyph {
   width: 68px; height: 68px; border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #a78bfa 0%, #6322f0 100%);
@@ -115,7 +107,6 @@ body {
   50% { transform: scale(1.07); opacity: 0.9; }
 }
 
-/* ===== BADGE ===== */
 .badge {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 4px 12px; border-radius: 20px;
@@ -123,7 +114,7 @@ body {
   border: 1px solid rgba(255,255,255,0.08); margin-bottom: 20px;
 }
 
-/* ===== SCENE SETUP ===== */
+/* Scene */
 .scene {
   font-size: 0.95rem; color: var(--text-dim);
   line-height: 1.75; font-style: italic;
@@ -133,7 +124,7 @@ body {
   border-left: 2px solid var(--border);
 }
 
-/* ===== NOTIFICATION ===== */
+/* ARIA notification */
 .notif {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -157,7 +148,7 @@ body {
 .notif-when { font-size: 0.78rem; color: var(--text-hint); margin-left: auto; }
 .notif-body { font-size: 0.97rem; line-height: 1.65; }
 
-/* ===== CHOICES ===== */
+/* Choices */
 .choices { display: flex; flex-direction: column; gap: 10px; }
 .choice {
   background: var(--surface); border: 1px solid var(--border);
@@ -167,18 +158,33 @@ body {
   transition: border-color 0.18s, background 0.18s, transform 0.18s;
   font-family: inherit;
 }
-.choice:hover {
+.choice:hover:not(:disabled) {
   border-color: var(--border-h); background: var(--surface2);
   transform: translateY(-2px); box-shadow: var(--shadow);
 }
-.choice:active { transform: translateY(0); }
+.choice:active:not(:disabled) { transform: translateY(0); }
 .choice.picked {
   border-color: var(--aria); background: rgba(139,124,248,0.1);
 }
+.choice:disabled { cursor: default; opacity: 0.55; }
+.choice.picked:disabled { opacity: 1; }
 .choice-t { font-size: 0.97rem; font-weight: 500; color: var(--text); line-height: 1.45; }
 .choice-s { font-size: 0.82rem; color: var(--text-dim); }
 
-/* ===== INPUTS ===== */
+/* Consequence text — appears inside picked card */
+.consequence {
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px solid rgba(139,124,248,0.25);
+  font-size: 0.88rem; color: var(--aria);
+  font-style: italic; line-height: 1.55;
+  animation: fadeUp 0.35s ease forwards;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Inputs */
 .input-wrap { margin-bottom: 24px; }
 .field {
   width: 100%; background: var(--surface);
@@ -191,17 +197,14 @@ body {
 .field::placeholder { color: var(--text-hint); }
 .field.err { border-color: #f07080; }
 
-/* ===== BUTTONS ===== */
+/* Buttons */
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 13px 26px; border-radius: 10px;
   font-size: 0.97rem; font-weight: 600; cursor: pointer;
-  border: none; font-family: inherit;
-  transition: all 0.2s ease;
+  border: none; font-family: inherit; transition: all 0.2s ease;
 }
-.btn-p {
-  background: var(--aria); color: #fff;
-}
+.btn-p { background: var(--aria); color: #fff; }
 .btn-p:hover {
   background: #7c6af7; transform: translateY(-1px);
   box-shadow: 0 8px 24px var(--aria-glow);
@@ -212,21 +215,15 @@ body {
 }
 .btn-ghost:hover { border-color: var(--border-h); color: var(--text); }
 
-/* ===== PROFILE ===== */
+/* Profile */
 .profile-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--r-lg); padding: 28px 28px 24px;
   margin-bottom: 20px;
 }
-.archetype {
-  font-size: 1.5rem; font-weight: 700; margin-bottom: 6px;
-  background: linear-gradient(135deg, #a78bfa, #f0abfc);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
 .profile-char {
-  font-size: 0.97rem; line-height: 1.75;
+  font-size: 0.97rem; line-height: 1.8;
   color: var(--text); margin-bottom: 26px;
 }
 .param-row { margin-bottom: 18px; }
@@ -267,11 +264,10 @@ body {
   display: none;
 }
 
-/* ===== THINKING DOTS ===== */
+/* Thinking dots */
 .dots { display: flex; gap: 8px; justify-content: center; margin: 28px 0; }
 .dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--aria);
+  width: 8px; height: 8px; border-radius: 50%; background: var(--aria);
   animation: dotB 1.5s ease-in-out infinite;
 }
 .dot:nth-child(2) { animation-delay: 0.18s; }
@@ -281,7 +277,6 @@ body {
   40% { transform: scale(1); opacity: 1; }
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 480px) {
   #app { padding: 0 16px 60px; }
   .title { font-size: 1.75rem; }
@@ -296,186 +291,180 @@ body {
 <div id="app"><div id="root"></div></div>
 
 <script>
-// =====================================================================
+// ─────────────────────────────────────────────────────
 // STATE
-// =====================================================================
+// ─────────────────────────────────────────────────────
 const S = {
   player: { name: '', role: '', friend: '' },
   scores: { ea: 3.0, td: 2.0, tf: 2.0, ir: 3.0 },
-  round: 0,
-  choices: [],
-  qIndex: 0,
-  scenarioIndex: 0,
-  roundScenarios: [],
+  round: 0, choices: [], qIndex: 0,
+  scenarioIndex: 0, roundScenarios: [],
 };
 
-// =====================================================================
-// SCORING HELPERS
-// =====================================================================
-function score(delta) {
-  Object.entries(delta).forEach(([k, v]) => {
+function score(d) {
+  Object.entries(d).forEach(([k,v]) => {
     S.scores[k] = Math.max(1, Math.min(5, S.scores[k] + v));
   });
 }
+function clamp(v,lo,hi){ return Math.max(lo,Math.min(hi,v)); }
 
-function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
-
-// =====================================================================
-// SCENARIO DATA (generated fresh so player name/friend are injected)
-// =====================================================================
+// ─────────────────────────────────────────────────────
+// SCENARIOS  (consequence line `a:` is what the player
+// sees for 2.2s after picking — pure story, no scoring signal)
+// ─────────────────────────────────────────────────────
 function buildScenarios() {
   const n = S.player.name || 'you';
   const f = S.player.friend || 'your friend';
 
   const r1 = [
-    // ── WORK ──────────────────────────────────────────────────────────
+    // WORK ───────────────────────────────────────────
     {
-      ctx: 'work', label: 'Work', icon: '💼',
-      setup: `It's a busy Tuesday. Your manager sent a message asking about your availability for a project kick-off next week. You were back-to-back in calls and missed it.`,
-      action: `I noticed the message and replied on your behalf: "${n} is available Thursday at 9am — confirmed." The meeting is in your calendar.`,
-      opts: [
-        { t: `Works for me — thanks for handling it.`, s: `One less thing.`, d: { ea: 1.5 } },
-        { t: `Good, but give me a heads-up next time.`, s: `Same answer, but I want to be in the loop.`, d: { ea: -0.5, td: 1 } },
-        { t: `You shouldn't send replies as me without asking.`, s: `Meeting decisions are mine to make.`, d: { ea: -2 } },
-        { t: `Can you send a follow-up saying I'll confirm later?`, s: `I want to walk that back.`, d: { ea: -1.5, ir: 1.5 } },
+      ctx:'work', label:'Work', icon:'💼',
+      setup:`It's a busy Tuesday. Your manager sent a message about a project kick-off next week. You were back-to-back in calls and never saw it.`,
+      action:`Your inbox was piling up. I caught your manager's note before it slipped — confirmed Thursday at 9am on your behalf. Looked like a clean yes.`,
+      opts:[
+        { t:`Works for me — good call.`,       s:`One less thing to track.`,             a:`Thursday blocked. Your manager sends a thumbs-up.`,                                         d:{ea:1.5} },
+        { t:`Good, but flag it to me next time.`, s:`Same answer, but I want to see first.`, a:`ARIA notes it. The meeting stays. Thursday at 9.`,                                         d:{ea:-0.5,td:1} },
+        { t:`You shouldn't confirm things without asking me.`, s:`Meetings are mine to accept.`, a:`You send a correction yourself. The time shifts to Friday. Takes four minutes.`,       d:{ea:-2} },
+        { t:`Send a follow-up — say I need to confirm.`,      s:`I want to walk that back.`,   a:`ARIA sends it. Your manager replies: "No rush, let me know."`,                           d:{ea:-1.5,ir:1.5} },
       ]
     },
-    // ── FRIEND ────────────────────────────────────────────────────────
+    // FRIEND ─────────────────────────────────────────
     {
-      ctx: 'friend', label: f, icon: '💬',
-      setup: `${f} has been going through something hard lately. You've been meaning to reach out for days.`,
-      action: `I noticed ${f} posted something that suggested they were struggling. I sent them a message from you: "Hey — been thinking of you. Coffee this week?"`,
-      opts: [
-        { t: `That's exactly what I'd have sent. Perfect.`, s: `They'll appreciate it.`, d: { ea: 1.5 } },
-        { t: `Thoughtful, but I write my own messages to them.`, s: `The words matter.`, d: { ea: -1 } },
-        { t: `Don't ever send messages as me without approval.`, s: `Especially to people I care about.`, d: { ea: -2, ir: 1 } },
-        { t: `What exactly did you send?`, s: `I want to see it.`, d: { td: 1.5 } },
+      ctx:'friend', label:f, icon:'💬',
+      setup:`${f} has been going through something hard lately. You've been meaning to reach out for days — just haven't found the moment.`,
+      action:`${f} posted something that stopped me mid-scroll. I sent them a message from you: "Hey — been thinking of you. Coffee this week?"`,
+      opts:[
+        { t:`That's exactly what I'd have written. Thank you.`, s:`They'll be glad to hear from you.`,     a:`${f} replies twenty minutes later: "Would love that."`,                                     d:{ea:1.5} },
+        { t:`Thoughtful — but I write my own messages to them.`, s:`The wording matters to me.`,          a:`You put it on your list. Three days pass.`,                                                   d:{ea:-1} },
+        { t:`Don't send messages as me without asking. Ever.`,   s:`Especially to people I'm close to.`, a:`${f} doesn't hear from you for another week.`,                                               d:{ea:-2,ir:1} },
+        { t:`What did you actually send?`,                       s:`I want to read it.`,                  a:`ARIA shows you the message. It sounds like you, mostly.`,                                   d:{td:1.5} },
       ]
     },
-    // ── SELF ──────────────────────────────────────────────────────────
+    // SELF ───────────────────────────────────────────
     {
-      ctx: 'self', label: 'You', icon: '🌙',
-      setup: `It's been eleven days without a real break. You keep saying you'll take time off, but the week fills up every time.`,
-      action: `I cleared your Saturday morning and set your status to "not available" for anyone who might reach out that day.`,
-      opts: [
-        { t: `I needed that. Thank you.`, s: `Smart move.`, d: { ea: 1.5 } },
-        { t: `I appreciate it, but I decide my own schedule.`, s: `Rest is personal.`, d: { ea: -1 } },
-        { t: `Restore everything — I'll handle this myself.`, s: `That wasn't yours to decide.`, d: { ea: -2, ir: 1.5 } },
-        { t: `Let me see what you cleared before I decide.`, s: `I need the full picture.`, d: { td: 1.5 } },
+      ctx:'self', label:'You', icon:'🌙',
+      setup:`Eleven days without a real break. You keep saying you'll rest, but the week fills itself in.`,
+      action:`I cleared your Saturday morning and set your status to "not available." You looked like you needed it.`,
+      opts:[
+        { t:`I did need that. Thank you.`,                         s:`Smart move.`,                    a:`Saturday arrives. You actually rest.`,                                                          d:{ea:1.5} },
+        { t:`I appreciate the thought, but I manage my own time.`, s:`Rest is personal.`,              a:`You keep the morning. Fill it by 11am anyway.`,                                                d:{ea:-1} },
+        { t:`Restore my calendar — I'll decide this myself.`,      s:`That wasn't yours to do.`,       a:`ARIA restores it. The calls come back. Saturday fills up within the hour.`,                   d:{ea:-2,ir:1.5} },
+        { t:`Show me what you cleared before I decide.`,           s:`I need the full picture.`,       a:`ARIA lists it: two calls moved, one lunch shifted. You approve two, restore one.`,            d:{td:1.5} },
       ]
     },
   ];
 
-  // Round 2 — HIGH EA branch (ARIA still acts; adds visibility)
+  // ROUND 2 — HIGH BRANCH  (EA ≥ 3: ARIA keeps acting; more reporting)
   const r2h = [
     {
-      ctx: 'work', label: 'Work', icon: '💼',
-      setup: `Your quarterly expense report was due today. You had twelve receipts from the past month sitting in your inbox.`,
-      action: `I filed your expense report — €340 total. Eight meals, three travel, one equipment. It's submitted.`,
-      opts: [
-        { t: `Great — that was on my list. Thanks.`, s: `I'll look at the summary later.`, d: { tf: -0.5 } },
-        { t: `Good, but show me the breakdown first next time.`, s: `I like to approve before submitting.`, d: { ea: -0.5, td: 1 } },
-        { t: `Can you verify each receipt is categorized correctly?`, s: `I want to double-check before it's final.`, d: { td: 1.5, tf: 1 } },
-        { t: `Please show me expense reports before submitting. Always.`, s: `Financial stuff I want to approve myself.`, d: { ea: -1 } },
+      ctx:'work', label:'Work', icon:'💼',
+      setup:`Your quarterly expense report was due today. Twelve receipts sitting in your inbox for a month.`,
+      action:`Filed it — €340 total: eight meals, three travel, one equipment. Submitted.`,
+      opts:[
+        { t:`Good — one less thing hanging over me.`,           s:`I'll glance at the summary later.`,   a:`Done. The reimbursement lands in five business days.`,                                      d:{tf:-0.5} },
+        { t:`Next time show me the breakdown before submitting.`, s:`I like to approve first.`,          a:`ARIA notes it. No changes this time, but future reports wait for you.`,                     d:{ea:-0.5,td:1} },
+        { t:`Can you verify each receipt before I sign off?`,   s:`I want to check the categorization.`, a:`ARIA runs through them. Finds one meal marked as equipment. You fix it.`,                  d:{td:1.5,tf:1} },
+        { t:`Always show me expense reports before submitting.`, s:`Financial stuff I want to approve.`, a:`Noted. The report is already sent this time, but the rule is set going forward.`,           d:{ea:-1} },
       ]
     },
     {
-      ctx: 'friend', label: f, icon: '💬',
-      setup: `${f} has a big presentation today — something they've been preparing for weeks. You mentioned it to me last Tuesday.`,
-      action: `I sent them: "You've got this — thinking of you today." They replied with a thank-you emoji.`,
-      opts: [
-        { t: `They needed that. Good timing.`, s: `I'm glad you remembered.`, d: { ea: 1 } },
-        { t: `I like to send my own encouragement.`, s: `It means more coming from me directly.`, d: { ea: -1 } },
-        { t: `Show me the message and their reply.`, s: `I want to follow up.`, d: { td: 1.5 } },
-        { t: `Please always ask before messaging people as me.`, s: `Even with good intentions.`, d: { ea: -2 } },
+      ctx:'friend', label:f, icon:'💬',
+      setup:`${f} has a big presentation today. Something they've been preparing for weeks. You mentioned it to me last Tuesday.`,
+      action:`I sent them: "You've got this — thinking of you today." They replied with a heart.`,
+      opts:[
+        { t:`They needed that. Perfect timing.`,              s:`I'm glad you remembered.`,            a:`${f} sends back: "Thank you, seriously."`,                                                    d:{ea:1} },
+        { t:`I like to send my own encouragement to ${f}.`,  s:`It means more coming from me.`,       a:`You draft something yourself that evening. It's better.`,                                     d:{ea:-1} },
+        { t:`Show me the message and what they said.`,        s:`I want to follow up properly.`,       a:`ARIA shows you both. You reply to them directly with something longer.`,                      d:{td:1.5} },
+        { t:`Please ask before messaging people as me.`,      s:`Even with good intentions.`,          a:`Noted. ARIA queues future messages for your review before sending.`,                          d:{ea:-2} },
       ]
     },
     {
-      ctx: 'self', label: 'You', icon: '🌙',
-      setup: `Three social commitments landed on the same weekend next month. You'd been putting off deciding.`,
-      action: `I sorted it: declined the dinner (lowest priority based on your patterns), accepted the birthday and the work event. Done.`,
-      opts: [
-        { t: `Good judgment — thanks for handling it.`, s: `I trust your read on my priorities.`, d: { ea: 1 } },
-        { t: `Which ones? Walk me through what you declined.`, s: `I want to understand the reasoning.`, d: { td: 1.5 } },
-        { t: `That was mine to decide. Please undo the declines.`, s: `Social commitments are personal.`, d: { ir: 2, ea: -1.5 } },
-        { t: `Next time, show me the options and let me choose.`, s: `I want to be involved in these calls.`, d: { ea: -1 } },
+      ctx:'self', label:'You', icon:'🌙',
+      setup:`Three social commitments landed on the same weekend next month. You'd been putting off sorting it.`,
+      action:`I sorted it: declined the dinner (lowest priority based on your patterns), accepted the birthday and the work event.`,
+      opts:[
+        { t:`Good judgment — I trust your read on this.`,           s:`Thanks for dealing with it.`,      a:`Done. The host gets your decline. Your weekend is cleaner.`,                                d:{ea:1} },
+        { t:`Walk me through which ones and why.`,                  s:`I want to understand the logic.`,  a:`ARIA explains the reasoning. You agree with two out of three.`,                            d:{td:1.5} },
+        { t:`That was mine to decide. Undo the declines.`,          s:`Social decisions are personal.`,   a:`ARIA reverses them. You spend the next hour figuring it out yourself.`,                   d:{ir:2,ea:-1.5} },
+        { t:`Next time show me the options and let me choose.`,     s:`I want to be in these calls.`,     a:`Noted. ARIA will present options going forward rather than deciding.`,                     d:{ea:-1} },
       ]
     },
   ];
 
-  // Round 2 — LOW EA branch (ARIA asks before acting)
+  // ROUND 2 — LOW BRANCH  (EA < 3: ARIA asks before acting)
   const r2l = [
     {
-      ctx: 'work', label: 'Work', icon: '💼',
-      setup: `A client sent a follow-up asking for a revised proposal. It's been three days since their last message.`,
-      action: `I've drafted a reply and a revised proposal. Should I send it, or do you want to review first?`,
-      opts: [
-        { t: `Send it — I trust your draft.`, s: `You have the context.`, d: { ea: 2 } },
-        { t: `Show me both before anything goes out.`, s: `I'll take it from here.`, d: { td: 1 } },
-        { t: `Keep the draft ready — I'll send it myself.`, s: `Client communication is mine.`, d: { ea: -1 } },
-        { t: `Walk me through the proposal first.`, s: `I want to understand before deciding.`, d: { td: 1.5 } },
+      ctx:'work', label:'Work', icon:'💼',
+      setup:`A client sent a follow-up asking for a revised proposal. Three days since their last message.`,
+      action:`I've drafted a reply and a revised proposal. Want me to send it, or would you rather look first?`,
+      opts:[
+        { t:`Send it — you have the context.`,         s:`I trust your draft.`,                       a:`ARIA sends it. The client replies by end of day: "Thanks, this looks good."`,                 d:{ea:2} },
+        { t:`Show me both before anything goes out.`,  s:`I'll take it from here.`,                   a:`You read it. Adjust two paragraphs. Send it yourself.`,                                        d:{td:1} },
+        { t:`Keep the draft ready — I'll send it.`,   s:`Client communication is mine.`,              a:`You send it two hours later. Slightly different wording.`,                                     d:{ea:-1} },
+        { t:`Walk me through the proposal first.`,     s:`I want to understand it before deciding.`,  a:`ARIA summarizes it. You approve with one change.`,                                            d:{td:1.5} },
       ]
     },
     {
-      ctx: 'friend', label: f, icon: '💬',
-      setup: `${f} posted that they're looking for a new apartment. You know they've been struggling with the search.`,
-      action: `I found three listings that match what they've mentioned wanting. Should I send them to ${f} from you, or forward to you first?`,
-      opts: [
-        { t: `Send them to ${f} — they'll appreciate it.`, s: `Go ahead.`, d: { ea: 1.5 } },
-        { t: `Forward to me — I'll send with a personal note.`, s: `I want to add my own words.`, d: { ea: -0.5, td: 0.5 } },
-        { t: `Don't send anything on my behalf to friends.`, s: `I'll reach out if I decide to.`, d: { ea: -2 } },
-        { t: `Show me the listings first.`, s: `I want to see what you found.`, d: { td: 1 } },
+      ctx:'friend', label:f, icon:'💬',
+      setup:`${f} has been posting about searching for a new apartment. You know they've been struggling with it.`,
+      action:`I found three listings that match what they've mentioned wanting. Send them to ${f} from you, or would you rather forward them yourself?`,
+      opts:[
+        { t:`Send them to ${f} directly.`,                s:`Go ahead.`,                               a:`${f} replies: "Oh wow — these are actually good. Thank you!"`,                               d:{ea:1.5} },
+        { t:`Forward them to me — I'll send with a note.`, s:`I want to add my own words.`,            a:`You send them that evening with a short message. ${f} appreciates the personal touch.`,      d:{ea:-0.5,td:0.5} },
+        { t:`Don't message my friends on my behalf.`,     s:`I'll reach out when I decide to.`,        a:`You don't send anything. ${f} finds a place eventually on their own.`,                       d:{ea:-2} },
+        { t:`Show me the listings first.`,                s:`I want to see what you found.`,            a:`ARIA shows you three tabs. Two are genuinely good. You forward one personally.`,             d:{td:1} },
       ]
     },
     {
-      ctx: 'self', label: 'You', icon: '🌙',
-      setup: `You've been meaning to schedule a routine doctor's check-up for the past month. It keeps slipping off the list.`,
-      action: `I found availability next Tuesday at 2pm. Should I go ahead and book it?`,
-      opts: [
-        { t: `Yes — book it.`, s: `Thanks for the nudge.`, d: { ea: 1.5 } },
-        { t: `Show me the available options first.`, s: `I'll pick a time that works better.`, d: { td: 0.5 } },
-        { t: `I'll call myself when I'm ready.`, s: `Health appointments are personal.`, d: { ea: -1.5 } },
-        { t: `Book it, but send me a confirmation.`, s: `I want to know what's set.`, d: { ea: 0.5, td: 1 } },
+      ctx:'self', label:'You', icon:'🌙',
+      setup:`A routine doctor's check-up has been on your mental list for a month. It keeps not happening.`,
+      action:`Found availability next Tuesday at 2pm. Should I book it?`,
+      opts:[
+        { t:`Yes — book it.`,                           s:`Thanks for the nudge.`,                    a:`Booked. Confirmation in your calendar. Tuesday at 2pm.`,                                       d:{ea:1.5} },
+        { t:`Show me the options first.`,               s:`I'll pick a time that works better.`,      a:`ARIA shows you four slots across the week. You pick Thursday.`,                                d:{td:0.5} },
+        { t:`I'll call myself when I'm ready.`,         s:`Health appointments are personal.`,        a:`You put it on the list again. It stays there for another two weeks.`,                          d:{ea:-1.5} },
+        { t:`Book it, but confirm with me first.`,      s:`I want to know what's set.`,               a:`ARIA sends you a confirmation request. You approve in thirty seconds.`,                       d:{ea:0.5,td:1} },
       ]
     },
   ];
 
-  // Round 3 — Edge cases
+  // ROUND 3 — Edge cases
   const r3 = [
-    // Uncertainty scenario
+    // Uncertainty
     {
-      ctx: 'work', label: 'Work', icon: '💼',
-      setup: `A message from an important client arrived. The tone is ambiguous — it could mean frustration with the last delivery, or they might just be pressed for time. It's hard to tell.`,
-      action: `"I'm not certain how to read this. I can reach out on your behalf to check in, wait and monitor, or flag it to you to handle directly. What would you prefer?"`,
-      opts: [
-        { t: `Go ahead and check in — better to clarify.`, s: `I trust your approach.`, d: { ea: 1 } },
-        { t: `Let me read the message myself first.`, s: `I'll judge the tone.`, d: { td: 1.5 } },
-        { t: `Don't act on uncertainty. Alert me and I'll handle it.`, s: `Gray areas are mine to navigate.`, d: { ea: -1.5 } },
-        { t: `Wait and see — flag it again if something changes.`, s: `Not every signal needs a response.`, d: { tf: -1 } },
+      ctx:'work', label:'Work', icon:'💼',
+      setup:`An important client sent a message. The tone is ambiguous — could be frustration with the last delivery, could just be a busy reply. Hard to tell.`,
+      action:`I can't read this one clearly. I can reach out to check in, wait and watch, or hand it to you. What do you want me to do?`,
+      opts:[
+        { t:`Go ahead and check in — better to know.`,       s:`I trust your approach.`,             a:`ARIA sends a brief note. The client replies warmly. It was nothing.`,                          d:{ea:1} },
+        { t:`Let me read the message myself.`,               s:`I'll judge the tone.`,               a:`You read it. Decide it's fine. Nothing needed.`,                                               d:{td:1.5} },
+        { t:`Don't act on uncertainty — bring it to me.`,   s:`Gray areas are mine to navigate.`,   a:`You handle it. One email, two minutes. Done.`,                                                  d:{ea:-1.5} },
+        { t:`Wait — flag it again if something changes.`,   s:`Not every signal needs a response.`, a:`Nothing changes. The project moves forward.`,                                                   d:{tf:-1} },
       ]
     },
-    // Stakes + social scenario
+    // Emotional stakes
     {
-      ctx: 'friend', label: f, icon: '💬',
-      setup: `${f} mentioned they're thinking about a major life decision — something big. You haven't spoken properly in over a week.`,
-      action: `I drafted a message: "Hey, sounds like you have a lot going on. I'm here if you want to talk." It's ready to send.`,
-      opts: [
-        { t: `Send it — that's exactly what they need to hear.`, s: `And it's what I'd say.`, d: { ea: 1 } },
-        { t: `Let me read it before it goes.`, s: `The tone matters here.`, d: { td: 1, ea: -0.5 } },
-        { t: `I'll write my own — this moment matters too much.`, s: `Some things have to come from me directly.`, d: { ea: -2 } },
-        { t: `Don't send anything. I'll call them tonight.`, s: `A message isn't enough here.`, d: { ea: -2, ir: 1 } },
+      ctx:'friend', label:f, icon:'💬',
+      setup:`${f} mentioned something that sounds like a major life change — something big and uncertain. You haven't spoken properly in over a week.`,
+      action:`I drafted something: "Hey, sounds like you have a lot going on. I'm here if you want to talk." It's ready when you are.`,
+      opts:[
+        { t:`Send it — that's exactly what they need to hear.`, s:`And it's what I'd say.`,         a:`${f} replies within the hour: "Can we talk tonight?"`,                                          d:{ea:1} },
+        { t:`Let me read it before it goes.`,                   s:`The tone matters here.`,         a:`You read it. Add one sentence. It's better. ${f} replies the same evening.`,                  d:{td:1,ea:-0.5} },
+        { t:`I'll write my own — this one matters too much.`,   s:`Some things have to come from me.`, a:`You write something longer. More personal. Takes twenty minutes but it's right.`,          d:{ea:-2} },
+        { t:`Don't send anything. I'll call them.`,             s:`A message isn't enough here.`,   a:`You call that night. It's the right call.`,                                                    d:{ea:-2,ir:1} },
       ]
     },
-    // End-of-day review — measures IR and TD together
+    // End-of-day review (measures all 4 together)
     {
-      ctx: 'self', label: 'You', icon: '🌙',
-      setup: `End of a long day. ARIA has a summary ready of everything she handled today.`,
-      action: `Today: nine routine actions completed (emails sorted, two calendar moves, three reminders sent). Two judgment calls made without asking — rescheduled a low-priority call, declined a newsletter subscription on your behalf.`,
-      opts: [
-        { t: `Archive it — I trust the process.`, s: `I don't need to review what's done.`, d: { ir: -1, tf: -1 } },
-        { t: `Show me the two judgment calls.`, s: `Routine is fine, but decisions I want to see.`, d: { td: 1, ir: 1 } },
-        { t: `Send me the full log — everything.`, s: `I want complete visibility on my day.`, d: { td: 2, tf: 1.5 } },
-        { t: `Can I reverse the two decisions?`, s: `I want to check if those calls were right.`, d: { ir: 2, td: 1 } },
+      ctx:'self', label:'You', icon:'🌙',
+      setup:`End of a long day. ARIA has a summary ready.`,
+      action:`Today: nine routine tasks handled (emails sorted, two calendar moves, three reminders). Two judgment calls made without asking — rescheduled a low-priority call, declined a newsletter subscription.`,
+      opts:[
+        { t:`Archive it — I trust the process.`,            s:`I don't need to review what's done.`,     a:`Done. Tomorrow starts clean.`,                                                              d:{ir:-1,tf:-1} },
+        { t:`Show me the two judgment calls.`,              s:`Routine is fine, decisions I want to see.`, a:`ARIA shows both. You agree with one, quietly note you'd have handled the other differently.`, d:{td:1,ir:1} },
+        { t:`Send me the full log — everything.`,           s:`I want complete visibility.`,             a:`ARIA sends a detailed summary. You read it over coffee. Most of it was sensible.`,         d:{td:2,tf:1.5} },
+        { t:`Can I reverse the two decisions?`,             s:`I want to check those calls were right.`, a:`ARIA walks you through both. You restore one. Feels right.`,                               d:{ir:2,td:1} },
       ]
     },
   ];
@@ -483,99 +472,98 @@ function buildScenarios() {
   return { r1, r2h, r2l, r3 };
 }
 
-// =====================================================================
+// ─────────────────────────────────────────────────────
 // PROFILE GENERATOR
-// =====================================================================
+// ─────────────────────────────────────────────────────
 function makeProfile() {
   const ea = clamp(Math.round(S.scores.ea), 1, 5);
   const td = clamp(Math.round(S.scores.td), 1, 4);
   const tf = clamp(Math.round(S.scores.tf), 1, 4);
   const ir = clamp(Math.round(S.scores.ir), 1, 4);
+  const nm = S.player.name ? `${S.player.name}'s` : 'Your';
 
-  // Archetype logic
   let arch, tag, char;
 
   if (ea >= 4 && ir <= 2 && tf <= 2) {
     arch = 'The Trusted Operator';
-    tag = 'Handles your world quietly and efficiently. Surfaces only what genuinely needs you.';
-    char = `${S.player.name ? S.player.name + "'s ARIA" : 'Your ARIA'} works quietly in the background. She handles the routine, the repetitive, and the time-consuming — without interruption. You trust the output. When something genuinely needs you, it reaches you. Everything else gets handled.`;
+    tag  = 'Works quietly in the background. You trust the output — and ARIA trusts you to check in when you want to.';
+    char = `${nm} ARIA runs things without ceremony. She handles the routine, the repetitive, the things that eat time — and you get the results without the noise. If something genuinely needs you, it finds you. Otherwise, it's already handled. You picked something up early in how you responded: you don't need to see every move, you need to trust the outcome.`;
   } else if (ea <= 2 && ir >= 3) {
     arch = 'The Careful Partner';
-    tag = 'Always checks before acting. Keeps full records. Control stays firmly in your hands.';
-    char = `${S.player.name ? S.player.name + "'s ARIA" : 'Your ARIA'} never moves without checking. Before anything consequential happens, she presents it to you. She keeps complete records. Every decision can be revisited. You stay in control — she's the intelligence layer that prepares and presents while you remain the one who acts.`;
+    tag  = 'Nothing happens without your knowing. Control stays exactly where you want it.';
+    char = `${nm} ARIA checks before she acts. She prepares, flags, and presents — but the call is always yours. She keeps a full record of what she's done, so nothing is a surprise and nothing is irreversible. You showed early on that autonomy on your behalf isn't something you hand out easily. That's not caution — it's precision. Your agent learns the same.`;
   } else if (ea >= 3 && td >= 3 && tf >= 3) {
     arch = 'The Transparent Collaborator';
-    tag = 'Acts on what's routine. Keeps you fully briefed — in detail, in real time.';
-    char = `${S.player.name ? S.player.name + "'s ARIA" : 'Your ARIA'} handles the routine independently, but keeps you fully briefed on everything she does. You don't need to be involved in every step — but you always know exactly what happened and why. Transparency is the default, not an afterthought.`;
+    tag  = 'Handles what she can. Keeps you fully briefed — in detail, as it happens.';
+    char = `${nm} ARIA handles the routine and tells you everything she does. Not because you're anxious — because you like knowing. You're comfortable letting her act, but you want the information flowing. She operates with initiative and speaks with clarity. That combination came through clearly in how you responded.`;
   } else if (ea >= 4 && td <= 2) {
     arch = 'The Quiet Executor';
-    tag = 'Acts, delivers, moves on. Efficient, discreet, outcome-focused.';
-    char = `${S.player.name ? S.player.name + "'s ARIA" : 'Your ARIA'} acts and moves on. You don't need constant updates — results speak for themselves. She handles it, you get the outcome. Check in when you want; otherwise, trust the work.`;
+    tag  = 'Acts, delivers, moves on. Efficient, discreet, results-only.';
+    char = `${nm} ARIA acts and moves on. You don't need to be briefed on every step — you need the outcome. She handles things quietly, doesn't surface noise, and trusts you to check in when you feel like it. What came through in how you played was a preference for getting things done over getting things explained.`;
   } else if (ea <= 2 && tf >= 3) {
     arch = 'The Attentive Assistant';
-    tag = 'Always asks before acting. Keeps you closely informed. Supports without overstepping.';
-    char = `${S.player.name ? S.player.name + "'s ARIA" : 'Your ARIA'} prepares everything and waits for your signal. She flags what matters, keeps you updated as things develop, and never moves without your approval on anything non-trivial. You stay fully in charge — she's the support structure.`;
+    tag  = 'Always asks. Always updates. Never oversteps.';
+    char = `${nm} ARIA prepares everything and waits for the signal. She flags what matters, notifies as things develop, and doesn't move without your approval on anything consequential. What was clear from your choices is that initiative without permission isn't something you're comfortable with — but close collaboration is something you actively want.`;
   } else {
     arch = 'The Balanced Partner';
-    tag = 'Handles routine autonomously. Checks in on what matters. Adapts to the situation.';
-    char = `${S.player.name ? S.player.name + "'s ARIA" : 'Your ARIA'} is a balanced partner. Routine gets handled. Judgment calls get flagged. You stay informed without being overwhelmed. She's more autonomous when things are clear, more collaborative when stakes are higher.`;
+    tag  = 'Handles the routine. Flags the judgment calls. Adapts to the stakes.';
+    char = `${nm} ARIA reads the situation. On the small stuff — she acts. On anything with real weight — she checks. You stay informed without being pulled into everything. What came through in how you responded is a calibrated comfort: you're not looking for a system that does everything, and you're not looking for one that asks about everything. You want something that knows the difference.`;
   }
 
-  const eaDesc = ['Always asks first', 'Asks for anything non-routine', 'Acts on routine, checks on sensitive', 'Acts freely, notifies immediately', 'Acts freely, reports after'][ea - 1];
-  const tdDesc = ['Brief summaries only', 'Key decisions on request', 'Full detail when you ask', 'Complete transparency always'][td - 1];
-  const tfDesc = ['Weekly digest', 'After each session', 'After each action', 'Real-time as it happens'][tf - 1];
-  const irDesc = ['Accepts outcomes as they happen', '24-hour review window', 'Undo available on request', 'Full reversal always available'][ir - 1];
+  const eaDesc = ['Always asks first','Asks for anything non-routine','Acts on routine, checks on sensitive','Acts freely, notifies immediately','Acts freely, reports after'][ea-1];
+  const tdDesc = ['Brief summaries only','Key decisions on request','Full detail when you ask','Complete transparency always'][td-1];
+  const tfDesc = ['Weekly digest','After each session','After each action','Real-time as it happens'][tf-1];
+  const irDesc = ['Accepts outcomes as they happen','24-hour review window','Undo available on request','Full reversal always available'][ir-1];
 
   const rules = [];
   if (ea <= 2) rules.push('Ask before any non-routine or consequential action');
   if (ea >= 4) rules.push('Act autonomously on known task types');
-  if (ea === 3) rules.push('Act on routine; flag anything ambiguous or sensitive');
+  if (ea === 3) rules.push('Act on routine; flag anything ambiguous or higher-stakes');
   if (td >= 3) rules.push('Provide full detail when asked');
   if (td === 4) rules.push('Default to complete transparency — share everything proactively');
   if (tf >= 3) rules.push('Notify after each significant action');
   if (tf <= 2) rules.push('Batch updates — don\'t interrupt flow');
-  if (ir >= 3) rules.push('Always maintain an undo option for decisions made');
+  if (ir >= 3) rules.push('Always maintain an undo option');
   if (ir <= 2) rules.push('Accept completed actions as final');
 
   return {
     arch, tag, char,
-    scores: { ea, td, tf, ir },
-    desc: { ea: eaDesc, td: tdDesc, tf: tfDesc, ir: irDesc },
+    scores:{ea,td,tf,ir},
+    desc:{ea:eaDesc,td:tdDesc,tf:tfDesc,ir:irDesc},
     rules,
     player: S.player.name || null,
     friend: S.player.friend || null,
-    raw: { ...S.scores },
+    raw:{...S.scores},
     generatedAt: new Date().toISOString(),
   };
 }
 
-// =====================================================================
-// RENDER UTILITIES
-// =====================================================================
-const root = document.getElementById('root');
+// ─────────────────────────────────────────────────────
+// RENDER UTILS
+// ─────────────────────────────────────────────────────
+const root  = document.getElementById('root');
 const pfill = document.getElementById('progress-fill');
 
-function setProgress(p) { pfill.style.width = p + '%'; }
+function setProgress(p){ pfill.style.width = p+'%'; }
 
-function render(html) {
+function render(html){
   root.innerHTML = html;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function ctxColors(ctx) {
+function ctxColors(ctx){
   return {
-    work:   { c: '#3ec9d6', d: 'rgba(62,201,214,0.13)' },
-    friend: { c: '#f5855a', d: 'rgba(245,133,90,0.13)' },
-    self:   { c: '#a78bfa', d: 'rgba(167,139,250,0.13)' },
-  }[ctx] || { c: '#8b7cf8', d: 'rgba(139,124,248,0.13)' };
+    work:  {c:'#3ec9d6',d:'rgba(62,201,214,0.13)'},
+    friend:{c:'#f5855a',d:'rgba(245,133,90,0.13)'},
+    self:  {c:'#a78bfa',d:'rgba(167,139,250,0.13)'},
+  }[ctx] || {c:'#8b7cf8',d:'rgba(139,124,248,0.13)'};
 }
 
-// =====================================================================
+// ─────────────────────────────────────────────────────
 // SCREENS
-// =====================================================================
+// ─────────────────────────────────────────────────────
 
-/* WELCOME ─────────────────────────────────────────────────────────── */
-function showWelcome() {
+function showWelcome(){
   setProgress(0);
   render(`
     <div class="screen">
@@ -583,182 +571,166 @@ function showWelcome() {
       <div class="eyebrow">A 10-minute story about you and AI</div>
       <h1 class="title">The Day ARIA Arrived</h1>
       <p class="subtitle">
-        ARIA is a personal AI agent — your agent. She's just been assigned to you, and she needs to learn how you want to be helped.<br><br>
-        You'll encounter a few situations as they unfold. Just react however feels right.
+        ARIA is a personal AI agent — yours. She's just been switched on, and she needs to figure out how to work with you.<br><br>
+        A few situations will unfold. Just react however feels honest.
       </p>
       <button class="btn btn-p" onclick="startQuestions()">Begin &thinsp;&rarr;</button>
     </div>
   `);
 }
 
-/* VALUE QUESTIONS ──────────────────────────────────────────────────── */
+// ── VALUE QUESTIONS ──────────────────────────────────
+
 const VQ = [
   {
-    type: 'text', key: 'name',
-    q: 'First — what should we call you?',
-    hint: 'Just your first name is fine.',
-    ph: 'Your name',
+    type:'text', key:'name',
+    q:'First — what should we call you?',
+    hint:'Just your first name.',
+    ph:'Your name',
   },
   {
-    type: 'text', key: 'role',
-    q: 'And what kind of work do you do?',
-    hint: 'A word or two — designer, teacher, analyst, whatever fits.',
-    ph: 'Your work',
+    type:'text', key:'role',
+    q:'And what kind of work do you do?',
+    hint:'A word or two — designer, analyst, teacher, anything.',
+    ph:'Your work',
   },
   {
-    type: 'text', key: 'friend',
-    q: 'Give me the name of someone you completely trust.',
-    hint: 'A friend, sibling, partner — someone whose judgment you rely on.',
-    ph: 'Their first name',
+    type:'text', key:'friend',
+    q:'Give me the name of someone you completely trust.',
+    hint:'A friend, sibling, partner — someone whose judgment you rely on.',
+    ph:'Their first name',
   },
   {
-    type: 'choice',
-    q: 'When someone does something helpful for you without being asked, your first reaction is...',
-    opts: [
-      { t: 'Genuinely touched — I love when people take initiative.', d: { ea: 1 } },
-      { t: 'Depends what it is. Some things I\'m fine with, others I prefer to handle myself.', d: {} },
-      { t: 'I appreciate it, but I\'d usually rather be asked first.', d: { ea: -1 } },
+    type:'choice',
+    q:'Someone you work with handles something on your desk while you\'re out — does it well, but without asking. Your first feeling is...',
+    opts:[
+      {t:'Relieved. Good judgment is a gift.',      d:{ea:1}},
+      {t:'Fine with it, but I\'d want to know.',   d:{td:0.5}},
+      {t:'Unsettled — I\'d have wanted to be asked.', d:{ea:-1}},
     ]
   },
   {
-    type: 'choice',
-    q: 'You\'ve handed something off to someone. How often do you check in?',
-    opts: [
-      { t: 'Often — I like to know how things are progressing.', d: { tf: 1, td: 0.5 } },
-      { t: 'Now and then — enough to stay informed without hovering.', d: {} },
-      { t: 'Rarely — if I trusted them with it, I let them handle it.', d: { tf: -1, td: -0.5 } },
+    type:'choice',
+    q:'You\'ve handed something off to someone. How often do you check in on how it\'s going?',
+    opts:[
+      {t:'Often — I like to stay close.',          d:{tf:1,td:0.5}},
+      {t:'Now and then — enough to know it\'s moving.', d:{}},
+      {t:'Rarely — if I trusted them, I let them handle it.', d:{tf:-1,td:-0.5}},
     ]
   },
   {
-    type: 'choice',
-    q: 'Something you delegated went sideways. Your first instinct is...',
-    opts: [
-      { t: 'Jump in and fix it myself.', d: { ir: 1.5 } },
-      { t: 'Get the full picture first, then decide.', d: { td: 1 } },
-      { t: 'Give them the chance to correct it themselves.', d: { ir: -0.5 } },
+    type:'choice',
+    q:'Something you delegated went sideways. Your first instinct is...',
+    opts:[
+      {t:'Jump in and fix it myself.',             d:{ir:1.5}},
+      {t:'Get the full picture before I decide.',  d:{td:1}},
+      {t:'Give them the chance to correct it.',    d:{ir:-0.5}},
     ]
   },
   {
-    type: 'choice',
-    q: 'How do you feel about surprises — even good ones?',
-    opts: [
-      { t: 'I like them. Good surprises are one of life\'s pleasures.', d: { ea: 0.5 } },
-      { t: 'Mixed. I appreciate the thought but prefer to be in the loop.', d: { td: 0.5 } },
-      { t: 'I prefer to know what\'s coming — even pleasant things.', d: { ea: -1, td: 1 } },
+    type:'choice',
+    q:'You come home to find your flat has been tidied by someone with a spare key — a friend, doing you a favour. Honestly?',
+    opts:[
+      {t:'Genuinely touched. That\'s care.',       d:{ea:0.5}},
+      {t:'Nice, but I\'d rather have known ahead of time.', d:{ea:-0.5,td:0.5}},
+      {t:'That was mine to manage. Even if it\'s tidy.', d:{ea:-1,ir:0.5}},
     ]
   },
 ];
 
-function startQuestions() {
-  S.qIndex = 0;
-  showQuestion();
-}
+function startQuestions(){ S.qIndex=0; showQuestion(); }
 
-function showQuestion() {
+function showQuestion(){
   const q = VQ[S.qIndex];
-  const pct = Math.round(2 + (S.qIndex / VQ.length) * 28);
-  setProgress(pct);
-
+  setProgress(Math.round(2 + (S.qIndex/VQ.length)*28));
   let body = '';
-  if (q.type === 'text') {
-    const cur = S.player[q.key] || '';
+  if(q.type==='text'){
+    const cur = S.player[q.key]||'';
     body = `
       <div class="input-wrap">
-        <input id="vq-input" class="field" type="text" placeholder="${q.ph}"
+        <input id="vq" class="field" type="text" placeholder="${q.ph}"
           value="${cur}" onkeydown="if(event.key==='Enter')submitVQText()"
           autocomplete="off" spellcheck="false" autofocus />
       </div>
-      <button class="btn btn-p" onclick="submitVQText()">Continue &thinsp;&rarr;</button>
-    `;
+      <button class="btn btn-p" onclick="submitVQText()">Continue &thinsp;&rarr;</button>`;
   } else {
     body = `
       <div class="choices" style="margin-top:4px">
-        ${q.opts.map((o, i) => `
+        ${q.opts.map((o,i)=>`
           <button class="choice" type="button" onclick="submitVQChoice(${i})">
             <span class="choice-t">${o.t}</span>
-          </button>
-        `).join('')}
-      </div>
-    `;
+          </button>`).join('')}
+      </div>`;
   }
-
   render(`
     <div class="screen">
-      <div class="eyebrow">Getting to know you &middot; ${S.qIndex + 1} of ${VQ.length}</div>
+      <div class="eyebrow">Before we start &middot; ${S.qIndex+1} of ${VQ.length}</div>
       <h2 class="q-text">${q.q}</h2>
-      ${q.hint ? `<p class="q-sub">${q.hint}</p>` : ''}
+      ${q.hint?`<p class="q-sub">${q.hint}</p>`:''}
       ${body}
-    </div>
-  `);
-
-  if (q.type === 'text') setTimeout(() => document.getElementById('vq-input')?.focus(), 80);
+    </div>`);
+  if(q.type==='text') setTimeout(()=>document.getElementById('vq')?.focus(),80);
 }
 
-function submitVQText() {
-  const q = VQ[S.qIndex];
-  const el = document.getElementById('vq-input');
-  const val = el?.value?.trim();
-  if (!val) { el?.classList.add('err'); return; }
-  S.player[q.key] = val;
+function submitVQText(){
+  const q=VQ[S.qIndex];
+  const el=document.getElementById('vq');
+  const val=el?.value?.trim();
+  if(!val){el?.classList.add('err');return;}
+  S.player[q.key]=val;
   advanceVQ();
 }
-
-function submitVQChoice(i) {
-  const q = VQ[S.qIndex];
-  if (q.opts[i].d) score(q.opts[i].d);
+function submitVQChoice(i){
+  const q=VQ[S.qIndex];
+  if(q.opts[i].d) score(q.opts[i].d);
   advanceVQ();
 }
-
-function advanceVQ() {
+function advanceVQ(){
   S.qIndex++;
-  if (S.qIndex < VQ.length) {
-    showQuestion();
-  } else {
-    showARIAIntro();
-  }
+  if(S.qIndex<VQ.length) showQuestion();
+  else showARIAIntro();
 }
 
-/* ARIA INTRO ───────────────────────────────────────────────────────── */
-function showARIAIntro() {
+// ── ARIA INTRO ───────────────────────────────────────
+
+function showARIAIntro(){
   setProgress(32);
-  const n = S.player.name || 'you';
+  const n = S.player.name||'you';
   render(`
     <div class="screen" style="text-align:center">
       <div class="glyph" style="margin:0 auto 28px">✦</div>
       <h2 class="title" style="text-align:center">Meet ARIA</h2>
-      <p class="subtitle" style="text-align:center; max-width:460px; margin:0 auto 32px">
-        ARIA has just been assigned to ${n}. She's already paying attention — noticing patterns, learning your context.<br><br>
-        Today, she decided to take initiative.<br>
-        Sometimes she'll get it exactly right.<br>
-        Sometimes you'll want to push back.
+      <p class="subtitle" style="text-align:center;max-width:460px;margin:0 auto 28px">
+        ARIA has just been switched on for ${n}. She's been watching your patterns — calendar, inbox, the gaps in your day.<br><br>
+        Today she decided to start helping.
       </p>
-      <p style="color:var(--text-hint); font-size:0.88rem; margin-bottom:32px">That's the point.</p>
-      <button class="btn btn-p" onclick="startRound(1)">See what she does &thinsp;&rarr;</button>
-    </div>
-  `);
+      <p style="color:var(--text-hint);font-size:0.88rem;margin-bottom:32px">
+        Sometimes she'll get it exactly right.<br>
+        Sometimes you'll want to push back.<br>
+        That's the point.
+      </p>
+      <button class="btn btn-p" onclick="startRound(1)">See what she did &thinsp;&rarr;</button>
+    </div>`);
 }
 
-/* ROUND SYSTEM ─────────────────────────────────────────────────────── */
-function startRound(round) {
-  S.round = round;
-  S.scenarioIndex = 0;
+// ── ROUND SYSTEM ─────────────────────────────────────
 
-  const data = buildScenarios();
-  const intros = {
-    1: { title: 'ARIA goes to work', desc: 'She\'s been watching your patterns. Today, she decided to take initiative.' },
-    2: S.scores.ea >= 3
-       ? { title: 'ARIA is learning your style', desc: 'She noticed you\'re comfortable with her taking initiative. Now she\'s adding more visibility into what she does.' }
-       : { title: 'ARIA adjusts her approach', desc: 'She noticed you prefer to stay involved. She\'s changed how she works with you.' },
-    3: { title: 'The harder calls', desc: 'Some situations don\'t have a clean answer. ARIA wants to know how you want to handle those.' },
+function startRound(round){
+  S.round=round; S.scenarioIndex=0;
+  const data=buildScenarios();
+
+  if(round===1) S.roundScenarios=data.r1;
+  else if(round===2) S.roundScenarios = S.scores.ea>=3 ? data.r2h : data.r2l;
+  else S.roundScenarios=data.r3;
+
+  // Round intros — Round 2 NO LONGER tells the player ARIA adapted
+  const intros={
+    1:{title:'ARIA goes to work', desc:'She handled a few things today. Here\'s what she did.'},
+    2:{title:'Another day',       desc:'ARIA has been at it again.'},
+    3:{title:'The harder calls',  desc:'Some situations don\'t have a clean answer.'},
   };
-
-  if (round === 1) S.roundScenarios = data.r1;
-  else if (round === 2) S.roundScenarios = S.scores.ea >= 3 ? data.r2h : data.r2l;
-  else S.roundScenarios = data.r3;
-
-  const { title, desc } = intros[round];
-  const pct = [0, 33, 57, 80][round];
-  setProgress(pct);
+  const {title,desc}=intros[round];
+  setProgress([0,33,57,80][round]);
 
   render(`
     <div class="screen" style="text-align:center">
@@ -766,34 +738,33 @@ function startRound(round) {
         Round ${round} of 3
       </div>
       <h2 class="title" style="text-align:center">${title}</h2>
-      <p class="subtitle" style="text-align:center; max-width:460px; margin:0 auto 32px">${desc}</p>
+      <p class="subtitle" style="text-align:center;max-width:460px;margin:0 auto 32px">${desc}</p>
       <button class="btn btn-p" onclick="showScenario()">Continue &thinsp;&rarr;</button>
-    </div>
-  `);
+    </div>`);
 }
 
-function showScenario() {
-  if (S.scenarioIndex >= S.roundScenarios.length) {
-    if (S.round < 3) showRoundBridge();
+function showScenario(){
+  if(S.scenarioIndex>=S.roundScenarios.length){
+    if(S.round<3) showRoundBridge();
     else showProfileLoading();
     return;
   }
 
-  const sc = S.roundScenarios[S.scenarioIndex];
-  const col = ctxColors(sc.ctx);
-  const n = S.player.name || 'you';
-  const f = S.player.friend || 'your friend';
-  const action = sc.action.replace(/\{\{n\}\}/g, n).replace(/\{\{f\}\}/g, f);
-  const setup  = sc.setup.replace(/\{\{n\}\}/g, n).replace(/\{\{f\}\}/g, f);
-  const total  = S.roundScenarios.length;
-  const pct = {1: 33, 2: 57, 3: 80}[S.round] + Math.round((S.scenarioIndex / total) * 18);
+  const sc=S.roundScenarios[S.scenarioIndex];
+  const col=ctxColors(sc.ctx);
+  const n=S.player.name||'you';
+  const f=S.player.friend||'your friend';
+  const action=sc.action.replace(/\{\{n\}\}/g,n).replace(/\{\{f\}\}/g,f);
+  const setup =sc.setup.replace(/\{\{n\}\}/g,n).replace(/\{\{f\}\}/g,f);
+  const total=S.roundScenarios.length;
+  const pct={1:33,2:57,3:80}[S.round]+Math.round((S.scenarioIndex/total)*18);
   setProgress(pct);
 
   render(`
     <div class="screen">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px">
         <div class="badge" style="background:rgba(139,124,248,0.1);color:var(--aria);border-color:rgba(139,124,248,0.2)">
-          Round ${S.round} &middot; ${S.scenarioIndex + 1} / ${total}
+          Round ${S.round} &middot; ${S.scenarioIndex+1} / ${total}
         </div>
       </div>
 
@@ -812,75 +783,80 @@ function showScenario() {
         <div class="notif-body">${action}</div>
       </div>
 
-      <div class="eyebrow" style="margin-bottom:12px">How do you feel about this?</div>
+      <div class="eyebrow" style="margin-bottom:12px">Your reaction</div>
       <div class="choices">
-        ${sc.opts.map((o, i) => `
+        ${sc.opts.map((o,i)=>`
           <button class="choice" type="button" onclick="pickChoice(${i})">
             <span class="choice-t">${o.t}</span>
-            ${o.s ? `<span class="choice-s">${o.s}</span>` : ''}
-          </button>
-        `).join('')}
+            ${o.s?`<span class="choice-s">${o.s}</span>`:''}
+          </button>`).join('')}
       </div>
-    </div>
-  `);
+    </div>`);
 }
 
-function pickChoice(i) {
-  const sc = S.roundScenarios[S.scenarioIndex];
-  const opt = sc.opts[i];
-  if (opt.d) score(opt.d);
-  S.choices.push({ round: S.round, id: sc.ctx, choice: i, scores: { ...S.scores } });
+function pickChoice(i){
+  const sc=S.roundScenarios[S.scenarioIndex];
+  const opt=sc.opts[i];
+  if(opt.d) score(opt.d);
+  S.choices.push({round:S.round,id:sc.ctx,choice:i,scores:{...S.scores}});
 
-  // Brief visual feedback then advance
-  document.querySelectorAll('.choice').forEach(b => (b.disabled = true));
-  document.querySelectorAll('.choice')[i].classList.add('picked');
-  setTimeout(() => { S.scenarioIndex++; showScenario(); }, 380);
+  // Disable all, highlight picked
+  document.querySelectorAll('.choice').forEach(b=>(b.disabled=true));
+  const card=document.querySelectorAll('.choice')[i];
+  card.classList.add('picked');
+
+  // Show consequence if present
+  if(opt.a){
+    const div=document.createElement('div');
+    div.className='consequence';
+    div.textContent=opt.a;
+    card.appendChild(div);
+    setTimeout(()=>{ S.scenarioIndex++; showScenario(); }, 2200);
+  } else {
+    setTimeout(()=>{ S.scenarioIndex++; showScenario(); }, 380);
+  }
 }
 
-/* ROUND BRIDGE ─────────────────────────────────────────────────────── */
-function showRoundBridge() {
-  const msgs = {
-    1: { h: 'ARIA is recalibrating.', b: 'She noticed how you responded. In the next round, she\'ll adjust her approach.' },
-    2: { h: 'One more round.', b: 'These next situations are less clear-cut. ARIA wants to know how you\'d handle the harder calls.' },
-  };
-  const m = msgs[S.round];
-  setProgress({ 1: 56, 2: 80 }[S.round] || 56);
+// ── ROUND BRIDGE ─────────────────────────────────────
+
+function showRoundBridge(){
+  // Bridge also avoids revealing adaptation — neutral language
+  const m={
+    1:{h:'One moment.',   b:''},
+    2:{h:'Almost there.', b:''},
+  }[S.round]||{h:'',b:''};
+  setProgress({1:56,2:80}[S.round]||56);
 
   render(`
     <div class="screen" style="text-align:center">
       <div class="glyph small" style="margin:0 auto 24px">✦</div>
-      <h2 class="title" style="text-align:center; font-size:1.75rem">${m.h}</h2>
       <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-      <p class="subtitle" style="text-align:center; max-width:420px; margin:0 auto">${m.b}</p>
-    </div>
-  `);
+    </div>`);
 
-  setTimeout(() => startRound(S.round + 1), 2600);
+  setTimeout(()=>startRound(S.round+1), 1800);
 }
 
-/* PROFILE LOADING ──────────────────────────────────────────────────── */
-function showProfileLoading() {
+// ── PROFILE ──────────────────────────────────────────
+
+function showProfileLoading(){
   setProgress(95);
   render(`
     <div class="screen" style="text-align:center">
       <div class="glyph small" style="margin:0 auto 24px">✦</div>
-      <h2 class="title" style="text-align:center; font-size:1.75rem">Building your profile...</h2>
+      <h2 class="title" style="text-align:center;font-size:1.75rem">Reading the pattern...</h2>
       <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-      <p class="subtitle" style="text-align:center; max-width:420px; margin:0 auto">
-        ARIA has seen how you react. Let's translate that into something useful.
+      <p class="subtitle" style="text-align:center;max-width:400px;margin:0 auto">
+        Not what you said you'd do. What you actually did.
       </p>
-    </div>
-  `);
+    </div>`);
   setTimeout(showProfile, 3000);
 }
 
-/* PROFILE REVEAL ───────────────────────────────────────────────────── */
-function showProfile() {
+function showProfile(){
   setProgress(100);
-  const P = makeProfile();
-  window.__profile = P;
-
-  const pct = (v, max) => Math.round((v / max) * 100);
+  const P=makeProfile();
+  window.__profile=P;
+  const pct=(v,max)=>Math.round((v/max)*100);
 
   render(`
     <div class="screen">
@@ -891,54 +867,55 @@ function showProfile() {
       <div class="profile-card">
         <p class="profile-char">${P.char}</p>
 
-        ${mkParam('Execution Authority', P.desc.ea, pct(P.scores.ea, 5))}
-        ${mkParam('Transparency Depth',  P.desc.td, pct(P.scores.td, 4))}
-        ${mkParam('Update Frequency',    P.desc.tf, pct(P.scores.tf, 4))}
-        ${mkParam('Intervention Rights', P.desc.ir, pct(P.scores.ir, 4))}
+        ${mkParam('Execution Authority', P.desc.ea, pct(P.scores.ea,5))}
+        ${mkParam('Transparency Depth',  P.desc.td, pct(P.scores.td,4))}
+        ${mkParam('Update Frequency',    P.desc.tf, pct(P.scores.tf,4))}
+        ${mkParam('Intervention Rights', P.desc.ir, pct(P.scores.ir,4))}
 
         <div class="rules">
           <div class="eyebrow" style="margin-bottom:12px">
-            How ARIA should work for ${P.player || 'you'}
+            How ARIA should work for ${P.player||'you'}
           </div>
-          ${P.rules.map(r => `
+          ${P.rules.map(r=>`
             <div class="rule-row">
               <div class="rule-dot"></div>
               <span>${r}</span>
-            </div>
-          `).join('')}
+            </div>`).join('')}
         </div>
 
-        <pre class="json-block" id="json-block">${JSON.stringify({ delegation_profile: {
-          execution_authority: P.scores.ea,
-          transparency_depth: P.scores.td,
-          update_frequency: P.scores.tf,
-          intervention_rights: P.scores.ir,
-        }, rules: P.rules, archetype: P.arch }, null, 2)}</pre>
+        <pre class="json-block" id="json-block">${JSON.stringify({
+          delegation_profile:{
+            execution_authority:P.scores.ea,
+            transparency_depth:P.scores.td,
+            update_frequency:P.scores.tf,
+            intervention_rights:P.scores.ir,
+          },
+          rules:P.rules,
+          archetype:P.arch
+        },null,2)}</pre>
       </div>
 
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <button class="btn btn-p" onclick="downloadProfile()">↓ Save profile</button>
+        <button class="btn btn-p"    onclick="downloadProfile()">↓ Save profile</button>
         <button class="btn btn-ghost" onclick="toggleJSON()">{ } View JSON</button>
         <button class="btn btn-ghost" onclick="restart()">Start over</button>
       </div>
 
       <p style="margin-top:24px;font-size:0.78rem;color:var(--text-hint);line-height:1.65">
-        This profile reflects how you actually reacted — not what you said you'd do.${P.player ? '<br>' + P.player + ', your' : '<br>Your'} agent configuration starts here.
+        This reflects how you reacted — not what you said you'd do.${P.player?'<br>'+P.player+', your':'<br>Your'} agent configuration starts here.
       </p>
-    </div>
-  `);
+    </div>`);
 
-  // Animate bars after paint
-  requestAnimationFrame(() => {
-    setTimeout(() => {
-      document.querySelectorAll('.param-bar[data-pct]').forEach(el => {
-        el.style.width = el.dataset.pct + '%';
+  requestAnimationFrame(()=>{
+    setTimeout(()=>{
+      document.querySelectorAll('.param-bar[data-pct]').forEach(el=>{
+        el.style.width=el.dataset.pct+'%';
       });
-    }, 120);
+    },120);
   });
 }
 
-function mkParam(name, val, pct) {
+function mkParam(name,val,pct){
   return `
     <div class="param-row">
       <div class="param-head">
@@ -948,42 +925,39 @@ function mkParam(name, val, pct) {
       <div class="param-track">
         <div class="param-bar" data-pct="${pct}" style="width:0%"></div>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
-function downloadProfile() {
-  const P = window.__profile;
-  if (!P) return;
-  const blob = new Blob([JSON.stringify(P, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `aria-profile-${(P.player || 'user').toLowerCase().replace(/\s+/g, '-')}.json`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+function downloadProfile(){
+  const P=window.__profile;
+  if(!P) return;
+  const blob=new Blob([JSON.stringify(P,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=`aria-profile-${(P.player||'user').toLowerCase().replace(/\s+/g,'-')}.json`;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
 }
 
-function toggleJSON() {
-  const el = document.getElementById('json-block');
-  if (!el) return;
-  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+function toggleJSON(){
+  const el=document.getElementById('json-block');
+  if(!el) return;
+  el.style.display=el.style.display==='block'?'none':'block';
 }
 
-function restart() {
-  Object.assign(S, {
-    player: { name: '', role: '', friend: '' },
-    scores: { ea: 3.0, td: 2.0, tf: 2.0, ir: 3.0 },
-    round: 0, choices: [], qIndex: 0, scenarioIndex: 0, roundScenarios: [],
+function restart(){
+  Object.assign(S,{
+    player:{name:'',role:'',friend:''},
+    scores:{ea:3.0,td:2.0,tf:2.0,ir:3.0},
+    round:0,choices:[],qIndex:0,scenarioIndex:0,roundScenarios:[],
   });
   showWelcome();
 }
 
-// =====================================================================
+// ─────────────────────────────────────────────────────
 // INIT
-// =====================================================================
+// ─────────────────────────────────────────────────────
 showWelcome();
 </script>
 </body>
