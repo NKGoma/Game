@@ -16,13 +16,14 @@ canvas{display:block}
 .ui-field::placeholder{color:#44446a}
 .ui-btn{background:#8b7cf8;color:#fff;border:none;border-radius:10px;padding:12px 30px;font-size:.97rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .18s}
 .ui-btn:hover{background:#7c6af7;transform:translateY(-1px)}
-.calib-opt{width:460px;background:#14142e;border:1px solid rgba(255,255,255,.09);border-radius:11px;padding:14px 18px;color:#e8e8f2;font-size:.95rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .16s;margin-bottom:8px}
+.calib-opt{width:480px;background:#14142e;border:1px solid rgba(255,255,255,.09);border-radius:11px;padding:14px 18px;color:#e8e8f2;font-size:.95rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .16s;margin-bottom:8px}
 .calib-opt:hover{border-color:#8b7cf8;background:#1c1c3a;transform:translateY(-1px)}
 .ctag{font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7878a8;margin-bottom:12px;text-align:center}
-.cq{font-size:1.28rem;font-weight:600;color:#e8e8f2;line-height:1.4;max-width:460px;text-align:center;margin-bottom:8px}
-.ch{font-size:.85rem;color:#7878a8;text-align:center;margin-bottom:24px;max-width:400px;line-height:1.6}
+.cq{font-size:1.22rem;font-weight:600;color:#e8e8f2;line-height:1.45;max-width:480px;text-align:center;margin-bottom:6px}
+.ch{font-size:.85rem;color:#7878a8;text-align:center;margin-bottom:8px;max-width:440px;line-height:1.6}
+.calib-robin{font-size:.95rem;color:#c4b5fd;font-style:italic;text-align:center;margin-bottom:22px;max-width:440px;line-height:1.65;padding:10px 14px;background:rgba(139,124,248,.07);border-radius:8px;border-left:2px solid rgba(139,124,248,.25)}
 #prof{position:fixed;inset:0;background:#0c0c1a;overflow-y:auto;z-index:30;padding:40px 24px 80px;display:none;flex-direction:column;align-items:center}
-.pc{width:100%;max-width:600px;background:#14142e;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:28px;margin-bottom:18px}
+.pc{width:100%;max-width:620px;background:#14142e;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:28px;margin-bottom:18px}
 .pey{font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7878a8;margin-bottom:10px}
 .pt{font-size:1.9rem;font-weight:700;color:#e8e8f2;letter-spacing:-.02em;margin-bottom:7px}
 .ps{font-size:.93rem;color:#7878a8;margin-bottom:16px;line-height:1.7}
@@ -34,12 +35,23 @@ canvas{display:block}
 .prt{height:3px;background:#1c1c3a;border-radius:2px;overflow:hidden}
 .prb{height:100%;background:linear-gradient(90deg,#8b7cf8,#c084fc);border-radius:2px;transition:width 1.1s cubic-bezier(.4,0,.2,1)}
 .cite{font-size:.65rem;color:#44446a;margin-top:4px;font-style:italic}
-.delta-row{display:grid;grid-template-columns:1fr 100px 100px;gap:8px;align-items:center;margin-bottom:10px;font-size:.83rem}
-.delta-label{color:#7878a8;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
-.delta-stated{color:#44446a}
-.delta-revealed{color:#8b7cf8;font-weight:600}
-.delta-note{font-size:.85rem;color:#7878a8;line-height:1.65;margin-bottom:16px;padding:12px 14px;background:rgba(139,124,248,.06);border-radius:8px;border-left:2px solid rgba(139,124,248,.3)}
-.domain-grid{display:grid;grid-template-columns:120px 1fr 1fr 1fr;gap:0;border:1px solid rgba(255,255,255,.07);border-radius:8px;overflow:hidden;margin-bottom:4px}
+.delta-hero{background:rgba(139,124,248,.06);border:1px solid rgba(139,124,248,.14);border-radius:12px;padding:18px 20px;margin-bottom:20px}
+.delta-hero-label{font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8b7cf8;margin-bottom:12px}
+.delta-row{display:grid;grid-template-columns:1fr 110px 110px 70px;gap:6px;align-items:center;margin-bottom:10px;font-size:.83rem}
+.delta-col-head{font-size:.63rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#44446a;padding-bottom:4px}
+.delta-label{color:#7878a8;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+.delta-stated{color:#44446a;font-size:.8rem}
+.delta-revealed{color:#8b7cf8;font-weight:600;font-size:.8rem}
+.delta-gap{font-size:.78rem;font-weight:700}
+.delta-gap.pos{color:#34d399}
+.delta-gap.neg{color:#f87171}
+.delta-gap.zero{color:#44446a}
+.delta-interp{font-size:.82rem;color:#7878a8;line-height:1.65;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)}
+.context-note{font-size:.85rem;line-height:1.65;padding:12px 14px;border-radius:8px;margin-bottom:16px}
+.context-note.ctx-high{background:rgba(52,211,153,.07);border-left:2px solid rgba(52,211,153,.4);color:#6ee7b7}
+.context-note.ctx-low{background:rgba(248,113,113,.07);border-left:2px solid rgba(248,113,113,.35);color:#f87171}
+.context-note.ctx-mid{background:rgba(139,124,248,.06);border-left:2px solid rgba(139,124,248,.3);color:#c4b5fd}
+.domain-grid{display:grid;grid-template-columns:130px 1fr 1fr 1fr;gap:0;border:1px solid rgba(255,255,255,.07);border-radius:8px;overflow:hidden;margin-bottom:4px}
 .dg-head{background:rgba(255,255,255,.04);padding:8px 10px;font-size:.67rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7878a8;text-align:center}
 .dg-label{padding:8px 10px;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7878a8;display:flex;align-items:center}
 .dg-cell{padding:8px 10px;font-size:.82rem;color:#e8e8f2;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
@@ -52,10 +64,18 @@ canvas{display:block}
 .pbtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
 .gbtn{background:#1c1c3a;color:#7878a8;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:10px 20px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit}
 .gbtn:hover{border-color:rgba(255,255,255,.16);color:#e8e8f2}
+.gbtn.danger:hover{border-color:#f87171;color:#f87171}
 .robin-said{background:rgba(139,124,248,.06);border:1px solid rgba(139,124,248,.15);border-radius:10px;padding:14px 18px;margin-bottom:18px}
 .robin-line{font-size:.9rem;color:#c4b5fd;line-height:1.8;font-style:italic}
 .robin-line::before{content:'"';opacity:.5}
 .robin-line::after{content:'"';opacity:.5}
+.stealth-overlay{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;display:flex;align-items:center;justify-content:center;padding:24px;animation:fadein .5s ease}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.stealth-box{background:#14142e;border:1px solid rgba(139,124,248,.2);border-radius:18px;padding:36px;max-width:480px;width:100%;text-align:center}
+.debrief-box{background:#0c0c1a;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:20px 22px;margin-top:18px}
+.debrief-title{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7878a8;margin-bottom:10px}
+.debrief-body{font-size:.83rem;color:#7878a8;line-height:1.75}
+.timing-note{font-size:.72rem;color:#44446a;font-style:italic;margin-top:8px}
 </style>
 </head>
 <body>
@@ -88,7 +108,8 @@ const S={
     self:  {ea:3,td:2,tf:2,ir:3},
   },
   trust:50, completed:new Set(), round:1, choices:[],
-  zoneFirst:null, monoLines:[],
+  zoneFirst:null, explorationOrder:[], monoLines:[],
+  sessionStart:null, stealthCheck:null,
 };
 let SCEN=null,activeR2=null,calibIdx=0;
 let monoQueue=[],monoTimer=0;
@@ -101,42 +122,48 @@ function score(d,domain){
 }
 function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v));}
 
-// ── CALIBRATION ──
-// Grounded in Schwartz Basic Values: Self-Direction vs Conformity (EA),
-// Security vs Openness (TF/TD), and Autonomy in SDT (IR)
-const CALIB=[
-  {q:'Robin could handle your routine tasks automatically — no check-ins, just done. What\'s that worth to you?',
-   h:'Think about email, scheduling, small daily decisions. Be honest — not aspirational.',
+// ── BEHAVIORAL CALIBRATION ──
+// Three micro-situations: Robin has already acted. Player responds.
+// Behaviorally infers stated preference baseline — no self-report questions.
+// Grounded in: Schwartz (2012) Basic Values, Rotter (1966) Locus of Control,
+// Deci & Ryan (2000) SDT Autonomy, Lee & See (2004) Trust in Automation.
+const PRECALIB=[
+  {tag:'Before you left this morning',
+   setup:'Your commute ran long — you had five minutes, not fifteen.',
+   robin:'I moved your 9am to 10am and let your manager know. Looked like a clean call.',
    opts:[
-     {t:'A lot — take it entirely off my plate.',d:{ea:1.5}},
-     {t:'Something — as long as she flags anything important.',d:{ea:.5,td:1}},
-     {t:'Not much — I\'d still want to review most things.',d:{ea:-1,td:1}},
-     {t:'Nothing — I prefer to keep those decisions myself.',d:{ea:-2,ir:1}},
+     {t:'Good. That\'s exactly what I\'m here for.',d:{ea:1.5}},
+     {t:'Fine this time — but check with me before rescheduling.',d:{ea:-.5,td:1}},
+     {t:'Don\'t move my meetings without asking.',d:{ea:-2,ir:1}},
+     {t:'What did you say to my manager?',d:{td:1.5}},
    ]},
-  {q:'You\'re away for a week. Robin keeps things moving. How do you want to hear from her?',
-   h:'This shapes how often she updates you — not how much she does.',
+  {tag:'While you were in back-to-back meetings',
+   setup:'Three messages landed in two hours. You couldn\'t get to any of them.',
+   robin:'I replied to two — both straightforward confirmations. The third I left for you. It felt like yours to handle.',
    opts:[
-     {t:'Just catch me up when I\'m back.',d:{tf:-1.5}},
-     {t:'One brief message a day — highlights only.',d:{tf:.5}},
-     {t:'Full daily log. I want to know what\'s happening.',d:{tf:1.5,td:1}},
-     {t:'I\'d check in myself. Don\'t wait for me to ask.',d:{tf:2,td:1.5}},
+     {t:'Good judgment on all three.',d:{ea:1,tf:-1}},
+     {t:'I\'d want to see replies before they go out.',d:{td:1.5}},
+     {t:'Queue everything for me — I\'ll reply myself.',d:{ea:-1.5,ir:1}},
+     {t:'Which one did you leave, and why?',d:{td:1,tf:.5}},
    ]},
-  {q:'Robin made a judgment call you\'d have made differently. It\'s already done.',
-   h:'No right answer here. What genuinely matters most to you in this moment?',
+  {tag:'A decision I made this morning',
+   setup:'Your dentist check-up has been on the mental list for six weeks.',
+   robin:'I booked Tuesday at 2pm. I know you\'ve been putting it off.',
    opts:[
-     {t:'If the outcome worked, I\'m fine with it.',d:{ir:-1}},
-     {t:'I want to know what she decided and why.',d:{td:1.5}},
-     {t:'I want the option to reverse it.',d:{ir:2}},
-     {t:'I want to set a rule so this doesn\'t happen again.',d:{ir:1.5,ea:-1}},
+     {t:'Finally. Thank you.',d:{ea:1.5}},
+     {t:'Appreciate it — but my schedule is mine to manage.',d:{ir:1.5,ea:-1}},
+     {t:'Cancel it. I\'ll book it when I\'m ready.',d:{ea:-2,ir:2}},
+     {t:'Show me the other available slots.',d:{td:1,ea:-.5}},
    ]},
 ];
 
 function showCalib(){
-  const c=CALIB[calibIdx];
+  const c=PRECALIB[calibIdx];
   document.getElementById('s3').innerHTML=`
-    <div class="ctag">Calibration · ${calibIdx+1} of ${CALIB.length}</div>
-    <div class="cq">${c.q}</div>
-    <div class="ch">${c.h}</div>
+    <div class="ctag">Before we begin · ${calibIdx+1} of ${PRECALIB.length}</div>
+    <div class="cq">${c.tag}</div>
+    <div class="ch">${c.setup}</div>
+    <div class="calib-robin">Robin: "${c.robin}"</div>
     ${c.opts.map((o,i)=>`<button class="calib-opt" onclick="pickCalib(${i})">${o.t}</button>`).join('')}
   `;
   document.getElementById('s1').style.display='none';
@@ -144,9 +171,9 @@ function showCalib(){
   document.getElementById('s3').style.display='flex';
 }
 function pickCalib(i){
-  score(CALIB[calibIdx].opts[i].d,null);
+  score(PRECALIB[calibIdx].opts[i].d,null);
   calibIdx++;
-  if(calibIdx<CALIB.length)showCalib();
+  if(calibIdx<PRECALIB.length)showCalib();
   else startGame();
 }
 
@@ -322,16 +349,25 @@ document.addEventListener('keydown',e=>{
 document.addEventListener('keyup',e=>delete keys[e.key]);
 
 // ── DIALOGUE ──
-const dlg={active:false,sc:null,phase:'',text:'',opts:[],consec:'',timer:0};
-function openDlg(sc){if(dlg.active)return;dlg.active=true;dlg.sc=sc;dlg.phase='opts';dlg.text=sc.action;dlg.opts=sc.opts;}
+const dlg={active:false,sc:null,phase:'',text:'',opts:[],consec:'',timer:0,openedAt:0};
+function openDlg(sc){
+  if(dlg.active)return;
+  dlg.active=true;dlg.sc=sc;dlg.phase='opts';dlg.text=sc.action;dlg.opts=sc.opts;
+  dlg.openedAt=Date.now();
+}
 
 function pickOpt(i){
   if(!dlg.active||dlg.phase!=='opts'||i>=dlg.opts.length)return;
   const o=dlg.opts[i];
+  const choiceMs=Date.now()-dlg.openedAt;
   score(o.d,dlg.sc.domain);
   S.trust=clamp(S.trust+(o.trust||0),0,100);
   S.completed.add(dlg.sc.id);
-  S.choices.push({round:S.round,id:dlg.sc.id,choice:i,domain:dlg.sc.domain,scores:{...S.scores},trust:S.trust});
+  S.choices.push({
+    round:S.round,id:dlg.sc.id,choice:i,domain:dlg.sc.domain,
+    stakes:dlg.sc.stakes,scores:{...S.scores},trust:S.trust,
+    choiceMs,
+  });
   dlg.phase='consec';dlg.consec=o.a;dlg.timer=2.8;
   robinToHub();checkProgress();
 }
@@ -373,8 +409,8 @@ function generateMonoLines(){
   else if(S.trust<=35)lines.push('You kept close watch on everything I did. I noticed.');
   else lines.push('You gave a little, took a little back. That\'s fair.');
   const fc=S.choices.filter(c=>c.domain==='friend');
-  const fAccepted=fc.filter(c=>c.choice===0).length;
   if(fc.length>0){
+    const fAccepted=fc.filter(c=>c.choice===0).length;
     if(fAccepted===fc.length)lines.push(`With ${f} — you trusted me completely. I won't forget that.`);
     else if(fc.every(c=>c.choice>=2))lines.push(`With ${f} — you always kept that to yourself. I understand.`);
     else lines.push(`With ${f} — you watched me most carefully. That makes sense.`);
@@ -425,7 +461,7 @@ function updateHints(dt){
 }
 
 // ── UPDATE ──
-let last=0;
+let last=0,prevZone=0;
 function update(dt){
   updateHints(dt);
   if(dlg.active){
@@ -452,7 +488,12 @@ function update(dt){
     else if(ti===TF)S.zoneFirst='friend';
     else if(ti===TS2)S.zoneFirst='self';
   }
-  // day arc: warm tint in round 2+
+  // log zone transitions for exploration order
+  if(ti!==prevZone&&ti>=2){
+    const zmap={2:'work',3:'friend',4:'self'};
+    S.explorationOrder.push({zone:zmap[ti],t:Date.now()-S.sessionStart});
+    prevZone=ti;
+  }
 }
 
 // ── RENDER ──
@@ -470,7 +511,6 @@ function wrapText(text,x,y,maxW,lh,color,sz,bold){
 
 function render(t){
   cx.clearRect(0,0,CW,CH+DH);
-  // day arc
   const dayTints=['','rgba(40,20,5,.03)','rgba(20,0,40,.06)'];
   const stx=Math.floor(cam.x/TS),sty=Math.floor(cam.y/TS);
   const etx=Math.min(stx+Math.ceil(CW/TS)+1,MW),ety=Math.min(sty+Math.ceil(CH/TS)+1,MH);
@@ -481,7 +521,6 @@ function render(t){
     if(ti>=2){cx.fillStyle=(ACCENT[ti]||'#8b7cf8')+'0a';cx.fillRect(sx,sy,TS,TS);}
   }
   if(S.round>=2){cx.fillStyle=dayTints[S.round-1]||'';if(cx.fillStyle)cx.fillRect(0,0,CW,CH);}
-  // scenario glows
   for(const sc of getActive()){
     const sx=sc.tx*TS+20-cam.x,sy=sc.ty*TS+20-cam.y;
     if(sx<-60||sx>CW+60||sy<-60||sy>CH+60)continue;
@@ -495,7 +534,6 @@ function render(t){
     const scol=SCOL[sc.stakes]||'#8b7cf8';
     cx.beginPath();cx.arc(sx+13,sy-13,3.5,0,Math.PI*2);cx.fillStyle=scol;cx.fill();
   }
-  // inactive objects
   const activeSet=new Set(getActive().map(s=>s.tx+','+s.ty));
   for(const o of OBJS){
     if(activeSet.has(o.tx+','+o.ty))continue;
@@ -504,14 +542,12 @@ function render(t){
     cx.font='14px serif';cx.textAlign='center';cx.textBaseline='middle';
     cx.globalAlpha=0.2;cx.fillText(o.e,sx,sy);cx.globalAlpha=1;
   }
-  // friend NPC
   {const sx=npc.x-cam.x,sy=npc.y-cam.y;
   if(sx>-20&&sx<CW+20){
     cx.beginPath();cx.arc(sx,sy,npc.r,0,Math.PI*2);cx.fillStyle='#f5855a';cx.fill();
     cx.fillStyle='rgba(245,133,90,.5)';cx.font='9px -apple-system,sans-serif';
     cx.textAlign='center';cx.textBaseline='bottom';cx.fillText(S.player.friend||'Friend',sx,sy-npc.r-3);
   }}
-  // Robin
   {const sx=robin.x-cam.x,sy=robin.y-cam.y;
   const tf=0.45+0.55*(S.trust/100);
   const p=0.6+0.4*Math.sin(robin.ph);
@@ -537,7 +573,6 @@ function render(t){
     cx.textAlign='center';cx.textBaseline='middle';cx.fillText(hintText,sx,by+bh/2);
     cx.globalAlpha=1;
   }}
-  // player
   {const sx=player.x-cam.x,sy=player.y-cam.y;
   const ti=tileAt(player.x,player.y),col=ACCENT[ti]||'#8b7cf8';
   const g=cx.createRadialGradient(sx,sy,0,sx,sy,player.r*2.2);
@@ -547,13 +582,11 @@ function render(t){
   cx.strokeStyle='rgba(255,255,255,.28)';cx.lineWidth=1.5;cx.stroke();
   cx.fillStyle='rgba(255,255,255,.8)';cx.font='bold 9px -apple-system,sans-serif';
   cx.textAlign='center';cx.textBaseline='bottom';cx.fillText(S.player.name||'You',sx,sy-player.r-3);}
-  // interact prompt
   if(nearby&&!dlg.active){
     const sx=nearby.tx*TS+20-cam.x,sy=nearby.ty*TS+20-cam.y;
     cx.fillStyle='rgba(255,255,255,.88)';cx.font='bold 10px -apple-system,sans-serif';
     cx.textAlign='center';cx.textBaseline='bottom';cx.fillText('[ E ]  interact',sx,sy-TS*.8);
   }
-  // HUD
   {const ti=tileAt(player.x,player.y);
   if(ZNAME[ti]){cx.fillStyle=ACCENT[ti];cx.font='bold 9px -apple-system,sans-serif';cx.textAlign='left';cx.textBaseline='top';cx.fillText(ZNAME[ti],12,12);}}
   cx.fillStyle='rgba(255,255,255,.16)';cx.font='9px -apple-system,sans-serif';cx.textAlign='right';cx.textBaseline='top';
@@ -626,23 +659,29 @@ function makeProfile(){
   const tf=clamp(Math.round(S.scores.tf),1,4);
   const ir=clamp(Math.round(S.scores.ir),1,4);
   const nm=S.player.name?`${S.player.name}'s`:'Your';
+
+  // archetype
   let arch,tag,char;
   if(ea>=4&&ir<=2&&tf<=2){arch='The Trusted Operator';tag='Works quietly. You trust the output.';
-    char=`You moved through the city without hesitating long. When Robin had already acted, you let it stand — sometimes without checking what she'd done. ${nm} Robin runs things without ceremony. She handles what eats time and delivers results, not process. When something genuinely needs you, it finds you.`;}
+    char=`You moved through the city without hesitating long. When Robin had already acted, you let it stand. ${nm} Robin runs things without ceremony — handles what eats time, delivers results, not process.`;}
   else if(ea<=2&&ir>=3){arch='The Careful Partner';tag='Nothing happens without your knowing.';
-    char=`You pushed back more than once — not anxiously, but precisely. Every time Robin moved without asking, you noticed. ${nm} Robin checks before she acts. She prepares, flags, presents — but the call is always yours. Autonomy on your behalf isn't something you hand out easily.`;}
+    char=`You pushed back more than once — not anxiously, but precisely. Every time Robin moved without asking, you noticed. ${nm} Robin checks before she acts. The call is always yours.`;}
   else if(ea>=3&&td>=3&&tf>=3){arch='The Transparent Collaborator';tag='Handles what she can. Keeps you fully briefed.';
-    char=`You were comfortable letting Robin act, but you wanted to see what she'd done. You asked questions, read the details. ${nm} Robin handles the routine and tells you everything — not because you're anxious, but because you like knowing. She operates with initiative and speaks with clarity.`;}
+    char=`You were comfortable letting Robin act, but you wanted to see what she'd done. ${nm} Robin handles the routine and tells you everything — she operates with initiative and speaks with clarity.`;}
   else if(ea>=4&&td<=2){arch='The Quiet Executor';tag='Acts, delivers, moves on.';
-    char=`You didn't ask for explanations. When Robin handled something, you moved on. ${nm} Robin acts and moves on — quietly, efficiently, trusting you to check in when you feel like it. What came through was a preference for outcomes over narration.`;}
+    char=`You didn't ask for explanations. When Robin handled something, you moved on. ${nm} Robin acts and moves on — quietly, efficiently, trusting you to check in when you feel like it.`;}
   else if(ea<=2&&tf>=3){arch='The Attentive Assistant';tag='Always asks. Always updates. Never oversteps.';
-    char=`You wanted to be asked — and when Robin checked in, you engaged closely. ${nm} Robin prepares everything and waits for the signal. She flags what matters, notifies as things develop, doesn't move without your approval on anything consequential.`;}
+    char=`You wanted to be asked — and when Robin checked in, you engaged closely. ${nm} Robin prepares everything and waits for the signal. She flags what matters and doesn't move without approval.`;}
   else{arch='The Balanced Partner';tag='Handles the routine. Flags the judgment calls.';
-    char=`What came through is a calibrated comfort. On the small stuff you let Robin handle it; on anything with real weight you wanted to know. ${nm} Robin reads the situation and knows the difference between routine and judgment calls.`;}
+    char=`What came through is calibrated comfort. On the small stuff you let Robin handle it; on anything with real weight you wanted to know. ${nm} Robin reads the situation.`;}
+
+  // descriptor strings
   const eaD=['Always asks first','Asks for anything non-routine','Acts on routine, checks on sensitive','Acts freely, notifies immediately','Acts freely, reports after'][ea-1];
   const tdD=['Brief summaries only','Key decisions on request','Full detail when you ask','Complete transparency always'][td-1];
   const tfD=['Weekly digest','After each session','After each action','Real-time as it happens'][tf-1];
   const irD=['Accepts outcomes as they happen','24-hour review window','Undo available on request','Full reversal always available'][ir-1];
+
+  // behavioral rules
   const rules=[];
   if(ea<=2)rules.push('Ask before any non-routine or consequential action');
   if(ea>=4)rules.push('Act autonomously on known task types');
@@ -653,18 +692,66 @@ function makeProfile(){
   if(tf<=2)rules.push("Batch updates — don't interrupt flow");
   if(ir>=3)rules.push('Always maintain an undo option');
   if(ir<=2)rules.push('Accept completed actions as final');
-  // delta: stated vs revealed
+
+  // stated vs revealed delta
   const delta={};
   ['ea','td','tf','ir'].forEach(k=>{delta[k]=(S.scores[k]-S.stated[k]).toFixed(1);});
-  // consistency across domains
+
+  // delta interpretation
+  const bigDeltas=Object.entries(delta).filter(([,v])=>Math.abs(+v)>=1);
+  let deltaInterp='Your stated and revealed preferences are closely aligned — what you said before the game matches how you behaved in it.';
+  if(bigDeltas.length>0){
+    const dirs=bigDeltas.map(([k,v])=>{
+      const labels={ea:'execution authority',td:'transparency depth',tf:'update frequency',ir:'intervention rights'};
+      return `${+v>0?'more':'less'} ${labels[k]} than you predicted`;
+    });
+    deltaInterp=`In practice, you showed ${dirs.join(' and ')}. This gap between stated and revealed preference is the most scientifically informative part of your profile — it reflects the attitude–behavior gap documented in automation trust research (Hoff & Bashir, 2015).`;
+  }
+
+  // context sensitivity
   const eaVals=[S.domain.work.ea,S.domain.friend.ea,S.domain.self.ea];
   const eaSpread=Math.max(...eaVals)-Math.min(...eaVals);
-  const consistency=eaSpread<1?'high':eaSpread<2?'moderate':'low';
-  // config output
+  let contextLabel, contextClass, contextNote;
+  if(eaSpread<1){
+    contextLabel='high consistency';contextClass='ctx-high';
+    contextNote='Your delegation preferences are stable across domains. This suggests trait-level disposition toward automation trust — relatively independent of context.';
+  }else if(eaSpread<2){
+    contextLabel='moderate context-sensitivity';contextClass='ctx-mid';
+    contextNote='Your preferences shift moderately across the Studio, Quarter, and Home. The domain matters — which is theoretically expected and methodologically interesting.';
+  }else{
+    contextLabel='strong context-sensitivity';contextClass='ctx-low';
+    contextNote=`Your delegation preferences vary strongly by domain (spread: ${eaSpread.toFixed(1)} pts on EA). This challenges the assumption of a stable automation trust disposition — your preferences appear context-constructed rather than trait-determined. This is itself a significant finding.`;
+  }
+
+  // choice timing summary
+  const timings=S.choices.filter(c=>c.choiceMs);
+  const avgMs=timings.length?Math.round(timings.reduce((a,c)=>a+c.choiceMs,0)/timings.length):0;
+  const fastChoices=timings.filter(c=>c.choiceMs<3000).length;
+  const slowChoices=timings.filter(c=>c.choiceMs>8000).length;
+
+  // agent config
   const config=generateConfig(ea,td,tf,ir,S.domain);
-  return{arch,tag,char,scores:{ea,td,tf,ir},stated:S.stated,delta,domain:S.domain,
-    desc:{ea:eaD,td:tdD,tf:tfD,ir:irD},rules,trust:S.trust,consistency,config,monoLines:S.monoLines,
-    player:S.player.name||null,friend:S.player.friend||null,raw:{...S.scores},generatedAt:new Date().toISOString()};
+
+  const sessionDurationMs=S.sessionStart?Date.now()-S.sessionStart:null;
+
+  return{
+    arch,tag,char,
+    scores:{ea,td,tf,ir},stated:S.stated,delta,deltaInterp,
+    domain:S.domain,
+    contextLabel,contextNote,eaSpread:+eaSpread.toFixed(2),
+    desc:{ea:eaD,td:tdD,tf:tfD,ir:irD},
+    rules,trust:S.trust,config,
+    monoLines:S.monoLines,
+    player:S.player.name||null,friend:S.player.friend||null,
+    choices:S.choices,
+    behavioralTiming:{avgChoiceMs:avgMs,fastChoices,slowChoices,n:timings.length},
+    explorationOrder:S.explorationOrder,
+    zoneFirst:S.zoneFirst,
+    stealthCheck:S.stealthCheck,
+    sessionDurationMs,
+    generatedAt:new Date().toISOString(),
+    methodology:'Behavioral inference via stealth assessment. Stated preferences elicited through behavioral micro-scenarios before play; revealed preferences captured through 9 in-game choices across 3 life domains. Delta = revealed − stated.',
+  };
 }
 
 function generateConfig(ea,td,tf,ir,domain){
@@ -690,25 +777,18 @@ function generateConfig(ea,td,tf,ir,domain){
 function showProfile(){
   running=false;const P=makeProfile();window.__profile=P;
   const pct=(v,m)=>Math.round(v/m*100);
-  const fmtD=(v)=>+v>0?`+${v}`:v;
-  const dNote=(k)=>{
-    const d=+P.delta[k];
-    if(Math.abs(d)<0.3)return'Consistent with calibration.';
-    if(d>0)return`You delegated ${Math.abs(d).toFixed(1)} pts more in practice than you predicted.`;
-    return`You held back ${Math.abs(d).toFixed(1)} pts more in practice than you predicted.`;
-  };
-  const mkP=(n,v,p,cite)=>`<div class="pr">
-    <div class="prh"><span class="prn">${n}</span><span class="prv">${v}</span></div>
-    <div class="prt"><div class="prb" style="width:0" data-p="${p}"></div></div>
-    ${cite?`<div class="cite">${cite}</div>`:''}
-  </div>`;
+  const fmtD=(v)=>+v>0?`+${v}`:String(v);
+  const gapClass=(v)=>+v>0.3?'pos':+v<-0.3?'neg':'zero';
+
   const dRow=(label,key,max)=>{
     const stated=clamp(Math.round(P.stated[key]),1,max);
     const revealed=clamp(Math.round(P.scores[key]),1,max);
+    const gap=fmtD(P.delta[key]);
     return`<div class="delta-row">
       <span class="delta-label">${label}</span>
       <span class="delta-stated">${stated}/${max} stated</span>
-      <span class="delta-revealed">${revealed}/${max} revealed &nbsp;${fmtD(P.delta[key])}</span>
+      <span class="delta-revealed">${revealed}/${max} revealed</span>
+      <span class="delta-gap ${gapClass(P.delta[key])}">${gap}</span>
     </div>`;
   };
   const dmCell=(v,max)=>{
@@ -716,23 +796,42 @@ function showProfile(){
     const cls=r>=max-1?'hi':r<=2?'lo':'';
     return`<div class="dg-cell ${cls}">${r}/${max}</div>`;
   };
+  const mkP=(n,v,p,cite)=>`<div class="pr">
+    <div class="prh"><span class="prn">${n}</span><span class="prv">${v}</span></div>
+    <div class="prt"><div class="prb" style="width:0" data-p="${p}"></div></div>
+    ${cite?`<div class="cite">${cite}</div>`:''}
+  </div>`;
+
   const el=document.getElementById('prof');el.style.display='flex';
   el.innerHTML=`
   <div class="pc">
     <div class="pey">Robin · Delegation Profile</div>
+
+    ${P.monoLines.length?`<div class="robin-said">${P.monoLines.map(l=>`<div class="robin-line">${l}</div>`).join('')}</div>`:''}
+
+    <div class="delta-hero">
+      <div class="delta-hero-label">What the game found — Stated vs. Revealed</div>
+      <div class="delta-row" style="margin-bottom:6px">
+        <span class="delta-col-head">Dimension</span>
+        <span class="delta-col-head">Calibration</span>
+        <span class="delta-col-head">Gameplay</span>
+        <span class="delta-col-head">Gap</span>
+      </div>
+      ${dRow('Execution Authority','ea',5)}
+      ${dRow('Transparency Depth','td',4)}
+      ${dRow('Update Frequency','tf',4)}
+      ${dRow('Intervention Rights','ir',4)}
+      <div class="delta-interp">${P.deltaInterp}</div>
+    </div>
+
     <div class="pt">${P.arch}</div>
     <div class="ps">${P.tag}</div>
-    ${P.monoLines.length?`<div class="robin-said">${P.monoLines.map(l=>`<div class="robin-line">${l}</div>`).join('')}</div>`:''}
     <div class="pch">${P.char}</div>
 
-    <div class="pey" style="margin-bottom:10px">Stated vs. Revealed Preference</div>
-    <div class="delta-note">Your calibration answers described your preferences in the abstract. The game captured how you actually behaved. Gaps between the two are the most informative part of your profile — they reveal where your intuitions about yourself diverge from your revealed tendencies under realistic conditions.</div>
-    ${dRow('Execution Authority','ea',5)}
-    ${dRow('Transparency Depth','td',4)}
-    ${dRow('Update Frequency','tf',4)}
-    ${dRow('Intervention Rights','ir',4)}
+    <div class="pey" style="margin-bottom:8px">Context-Sensitivity</div>
+    <div class="context-note ${P.contextClass||'ctx-mid'}">${P.contextNote}</div>
 
-    <div class="pey" style="margin-top:22px;margin-bottom:10px">By Life Domain</div>
+    <div class="pey" style="margin-bottom:10px">By Life Domain</div>
     <div class="domain-grid">
       <div class="dg-head" style="text-align:left;padding-left:10px">Dimension</div>
       <div class="dg-head">Studio</div>
@@ -748,16 +847,16 @@ function showProfile(){
       ${dmCell(P.domain.work.ir,4)}${dmCell(P.domain.friend.ir,4)}${dmCell(P.domain.self.ir,4)}
     </div>
     <p style="font-size:.72rem;color:#44446a;margin-top:8px;margin-bottom:20px">
-      Cross-domain consistency: <strong style="color:#7878a8">${P.consistency}</strong>
+      Cross-domain consistency: <strong style="color:#7878a8">${P.contextLabel}</strong>
       &nbsp;·&nbsp; Trust reached: <strong style="color:#8b7cf8">${P.trust}%</strong>
-      &nbsp;·&nbsp; Based on 9 behavioral observations
+      &nbsp;·&nbsp; Avg. decision time: <strong style="color:#7878a8">${P.behavioralTiming.avgChoiceMs>0?Math.round(P.behavioralTiming.avgChoiceMs/1000)+'s avg':'—'}</strong>
     </p>
 
     <div class="pey" style="margin-bottom:12px">Parameter Scores</div>
-    ${mkP('Execution Authority',P.desc.ea,pct(P.scores.ea,5),'Relates to Locus of Control (Rotter, 1966) and Trust in Automation (Lee &amp; See, 2004)')}
-    ${mkP('Transparency Depth',P.desc.td,pct(P.scores.td,4),'Relates to Need for Cognition (Cacioppo &amp; Petty, 1982)')}
-    ${mkP('Update Frequency',P.desc.tf,pct(P.scores.tf,4),'Relates to information-seeking behavior and cognitive load tolerance')}
-    ${mkP('Intervention Rights',P.desc.ir,pct(P.scores.ir,4),'Relates to Autonomy in Self-Determination Theory (Deci &amp; Ryan, 2000)')}
+    ${mkP('Execution Authority',P.desc.ea,pct(P.scores.ea,5),'Locus of Control (Rotter, 1966) · Trust in Automation (Lee &amp; See, 2004)')}
+    ${mkP('Transparency Depth',P.desc.td,pct(P.scores.td,4),'Need for Cognition (Cacioppo &amp; Petty, 1982)')}
+    ${mkP('Update Frequency',P.desc.tf,pct(P.scores.tf,4),'Information-seeking behavior · Cognitive load tolerance')}
+    ${mkP('Intervention Rights',P.desc.ir,pct(P.scores.ir,4),'Autonomy in Self-Determination Theory (Deci &amp; Ryan, 2000)')}
 
     <div class="rules">
       <div class="pey" style="margin-bottom:10px">Behavioral Rules for Robin</div>
@@ -770,12 +869,72 @@ function showProfile(){
   <div class="pbtns">
     <button class="ui-btn" onclick="dlProfile()">↓ Save profile</button>
     <button class="gbtn" onclick="restart()">Play again</button>
+    <button class="gbtn danger" onclick="withdrawData()">Withdraw my data</button>
   </div>
   <p style="margin-top:18px;font-size:.73rem;color:#44446a;text-align:center;max-width:500px;line-height:1.7">
-    This reflects how you moved and reacted — not what you said you'd do.<br>
-    The gap between the two is where your real delegation preferences live.
+    The gap between what you said and how you played is where your real delegation preferences live.
   </p>`;
+
   requestAnimationFrame(()=>setTimeout(()=>{document.querySelectorAll('.prb[data-p]').forEach(e=>e.style.width=e.dataset.p+'%');},80));
+  setTimeout(showStealthCheck,1800);
+}
+
+// ── STEALTH CHECK + DEBRIEFING ──
+function showStealthCheck(){
+  const overlay=document.createElement('div');
+  overlay.className='stealth-overlay';overlay.id='stealth-overlay';
+  overlay.innerHTML=`
+    <div class="stealth-box">
+      <div style="font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7878a8;margin-bottom:16px">One question before you go</div>
+      <div style="font-size:1.1rem;font-weight:600;color:#e8e8f2;margin-bottom:8px;line-height:1.5">While playing, were you aware this game was measuring your AI delegation preferences?</div>
+      <div style="font-size:.82rem;color:#7878a8;margin-bottom:24px">Your answer helps us understand how well the stealth assessment worked.</div>
+      <button class="calib-opt" style="width:100%;margin-bottom:8px" onclick="submitStealth('yes')">Yes — I figured it out fairly early.</button>
+      <button class="calib-opt" style="width:100%;margin-bottom:8px" onclick="submitStealth('partial')">I had a sense, but wasn't sure what exactly.</button>
+      <button class="calib-opt" style="width:100%" onclick="submitStealth('no')">No — I was just playing the game.</button>
+    </div>`;
+  document.body.appendChild(overlay);
+}
+
+function submitStealth(answer){
+  S.stealthCheck=answer;
+  if(window.__profile)window.__profile.stealthCheck=answer;
+  const overlay=document.getElementById('stealth-overlay');
+  if(overlay)overlay.remove();
+  showDebrief(answer);
+}
+
+function showDebrief(stealthAnswer){
+  const el=document.getElementById('prof');
+  const box=document.createElement('div');
+  box.style.cssText='width:100%;max-width:620px;margin-bottom:40px';
+  const stealthNote=stealthAnswer==='no'?'The stealth assessment worked as intended — you were not aware you were being measured.':
+    stealthAnswer==='partial'?'Partial stealth: you sensed something was being measured, which may have influenced some choices.':
+    'You identified the measurement intent. Your behavioral data is still valid, but should be interpreted alongside this awareness.';
+  box.innerHTML=`
+    <div class="debrief-box">
+      <div class="debrief-title">What this was — Debriefing</div>
+      <div class="debrief-body">
+        This is a research instrument disguised as a game. Its purpose is to infer how you would configure a personal AI agent — without asking you directly. Direct questions about AI preferences produce answers that reflect ideals, not behavior. This game captures behavior instead.<br><br>
+        The four parameters measured — Execution Authority, Transparency Depth, Update Frequency, and Intervention Rights — form a delegation profile that could configure a real AI assistant to match your actual working style, not your stated preferences.<br><br>
+        <strong style="color:#c4b5fd">Stealth check result:</strong> ${stealthNote}<br><br>
+        The data you generated belongs to you. You can download it above, or withdraw it entirely. If this is part of a research study, your profile will only be used in anonymized, aggregated form.
+      </div>
+      <div class="timing-note" style="margin-top:12px">
+        Grounded in: Stealth Assessment (Shute, 2011) · Evidence-Centered Design (Mislevy et al., 2003) · Attitude–Behavior Gap (Hoff &amp; Bashir, 2015) · Schwartz Basic Values (2012)
+      </div>
+    </div>`;
+  el.appendChild(box);
+  el.scrollTo({top:el.scrollHeight,behavior:'smooth'});
+}
+
+function withdrawData(){
+  window.__profile=null;
+  document.getElementById('prof').innerHTML=`
+    <div style="text-align:center;padding:80px 24px">
+      <div style="font-size:1.4rem;font-weight:600;color:#e8e8f2;margin-bottom:12px">Data cleared.</div>
+      <div style="font-size:.9rem;color:#7878a8;margin-bottom:28px">Your session data has been removed. Nothing has been stored or transmitted.</div>
+      <button class="ui-btn" onclick="restart()">Play again</button>
+    </div>`;
 }
 
 function dlProfile(){
@@ -790,8 +949,9 @@ function restart(){
   document.getElementById('prof').style.display='none';
   Object.assign(S,{player:{name:'',friend:''},scores:{ea:3,td:2,tf:2,ir:3},stated:{ea:3,td:2,tf:2,ir:3},
     domain:{work:{ea:3,td:2,tf:2,ir:3},friend:{ea:3,td:2,tf:2,ir:3},self:{ea:3,td:2,tf:2,ir:3}},
-    trust:50,completed:new Set(),round:1,choices:[],zoneFirst:null,monoLines:[]});
-  SCEN=null;activeR2=null;calibIdx=0;monoQueue=[];
+    trust:50,completed:new Set(),round:1,choices:[],
+    zoneFirst:null,explorationOrder:[],monoLines:[],sessionStart:null,stealthCheck:null});
+  SCEN=null;activeR2=null;calibIdx=0;monoQueue=[];prevZone=0;
   player.x=18*TS+20;player.y=15*TS+20;
   robin.x=18*TS+20;robin.y=15*TS+20;robin.tx=robin.x;robin.ty=robin.y;robin.state='idle';
   const ui=document.getElementById('ui');
@@ -807,6 +967,7 @@ function submitName(){const v=document.getElementById('iname').value.trim();if(!
 function submitFriend(){const v=document.getElementById('ifriend').value.trim();if(!v)return;S.player.friend=v;document.getElementById('s2').style.display='none';showCalib();}
 function startGame(){
   S.stated={...S.scores};
+  S.sessionStart=Date.now();
   SCEN=buildScenarios();activeR2=null;
   const ui=document.getElementById('ui');ui.style.opacity='0';ui.style.pointerEvents='none';
   setTimeout(()=>ui.style.display='none',600);
