@@ -8,43 +8,60 @@
 body{background:#000;display:flex;align-items:center;justify-content:center;min-height:100vh;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
 canvas{display:block}
 #ui{position:fixed;inset:0;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:20;transition:opacity .6s;padding:24px}
-.glyph{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#a78bfa,#6322f0);box-shadow:0 0 28px rgba(139,124,248,.4);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 24px}
-.ui-title{font-size:2rem;font-weight:700;color:#e8e8f2;letter-spacing:-.02em;text-align:center;margin-bottom:10px;max-width:500px}
-.ui-sub{font-size:.97rem;color:#7878a8;text-align:center;margin-bottom:28px;line-height:1.75;max-width:440px}
-.ui-field{width:320px;background:#14142e;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 18px;color:#e8e8f2;font-size:1.1rem;font-family:inherit;outline:none;margin-bottom:16px;display:block}
+.glyph{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#a78bfa,#6322f0);box-shadow:0 0 28px rgba(139,124,248,.4);display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 22px}
+.ui-title{font-size:1.9rem;font-weight:700;color:#e8e8f2;letter-spacing:-.02em;text-align:center;margin-bottom:10px;max-width:500px}
+.ui-sub{font-size:.95rem;color:#7878a8;text-align:center;margin-bottom:26px;line-height:1.75;max-width:420px}
+.ui-field{width:320px;background:#14142e;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 18px;color:#e8e8f2;font-size:1.05rem;font-family:inherit;outline:none;margin-bottom:14px;display:block}
 .ui-field:focus{border-color:#8b7cf8;box-shadow:0 0 0 3px rgba(139,124,248,.18)}
 .ui-field::placeholder{color:#44446a}
-.ui-btn{background:#8b7cf8;color:#fff;border:none;border-radius:10px;padding:13px 32px;font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}
+.ui-btn{background:#8b7cf8;color:#fff;border:none;border-radius:10px;padding:12px 30px;font-size:.97rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .18s}
 .ui-btn:hover{background:#7c6af7;transform:translateY(-1px)}
-.calib-opt{width:460px;background:#14142e;border:1px solid rgba(255,255,255,.09);border-radius:11px;padding:15px 20px;color:#e8e8f2;font-size:.97rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .18s;margin-bottom:9px}
-.calib-opt:hover{border-color:#8b7cf8;background:#1c1c3a;transform:translateY(-1px);box-shadow:0 6px 20px rgba(139,124,248,.15)}
-.calib-tag{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7878a8;margin-bottom:14px;text-align:center}
-.calib-q{font-size:1.35rem;font-weight:600;color:#e8e8f2;line-height:1.4;max-width:460px;text-align:center;margin-bottom:8px}
-.calib-hint{font-size:.87rem;color:#7878a8;text-align:center;margin-bottom:26px;max-width:400px;line-height:1.6}
+.calib-opt{width:460px;background:#14142e;border:1px solid rgba(255,255,255,.09);border-radius:11px;padding:14px 18px;color:#e8e8f2;font-size:.95rem;cursor:pointer;font-family:inherit;text-align:left;transition:all .16s;margin-bottom:8px}
+.calib-opt:hover{border-color:#8b7cf8;background:#1c1c3a;transform:translateY(-1px)}
+.ctag{font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7878a8;margin-bottom:12px;text-align:center}
+.cq{font-size:1.28rem;font-weight:600;color:#e8e8f2;line-height:1.4;max-width:460px;text-align:center;margin-bottom:8px}
+.ch{font-size:.85rem;color:#7878a8;text-align:center;margin-bottom:24px;max-width:400px;line-height:1.6}
 #prof{position:fixed;inset:0;background:#0c0c1a;overflow-y:auto;z-index:30;padding:40px 24px 80px;display:none;flex-direction:column;align-items:center}
-.pc{width:100%;max-width:580px;background:#14142e;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:28px;margin-bottom:20px}
-.pey{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7878a8;margin-bottom:10px}
-.pt{font-size:2rem;font-weight:700;color:#e8e8f2;letter-spacing:-.02em;margin-bottom:8px}
-.ps{font-size:.95rem;color:#7878a8;margin-bottom:18px;line-height:1.7}
-.pch{font-size:.92rem;line-height:1.8;color:#e8e8f2;margin-bottom:22px}
-.pr{margin-bottom:14px}.prh{display:flex;justify-content:space-between;margin-bottom:4px}
+.pc{width:100%;max-width:600px;background:#14142e;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:28px;margin-bottom:18px}
+.pey{font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7878a8;margin-bottom:10px}
+.pt{font-size:1.9rem;font-weight:700;color:#e8e8f2;letter-spacing:-.02em;margin-bottom:7px}
+.ps{font-size:.93rem;color:#7878a8;margin-bottom:16px;line-height:1.7}
+.pch{font-size:.9rem;line-height:1.82;color:#e8e8f2;margin-bottom:22px}
+.pr{margin-bottom:16px}
+.prh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
 .prn{font-size:.67rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#7878a8}
 .prv{font-size:.77rem;color:#8b7cf8;font-weight:600}
 .prt{height:3px;background:#1c1c3a;border-radius:2px;overflow:hidden}
 .prb{height:100%;background:linear-gradient(90deg,#8b7cf8,#c084fc);border-radius:2px;transition:width 1.1s cubic-bezier(.4,0,.2,1)}
+.cite{font-size:.65rem;color:#44446a;margin-top:4px;font-style:italic}
+.delta-row{display:grid;grid-template-columns:1fr 100px 100px;gap:8px;align-items:center;margin-bottom:10px;font-size:.83rem}
+.delta-label{color:#7878a8;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
+.delta-stated{color:#44446a}
+.delta-revealed{color:#8b7cf8;font-weight:600}
+.delta-note{font-size:.85rem;color:#7878a8;line-height:1.65;margin-bottom:16px;padding:12px 14px;background:rgba(139,124,248,.06);border-radius:8px;border-left:2px solid rgba(139,124,248,.3)}
+.domain-grid{display:grid;grid-template-columns:120px 1fr 1fr 1fr;gap:0;border:1px solid rgba(255,255,255,.07);border-radius:8px;overflow:hidden;margin-bottom:4px}
+.dg-head{background:rgba(255,255,255,.04);padding:8px 10px;font-size:.67rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7878a8;text-align:center}
+.dg-label{padding:8px 10px;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7878a8;display:flex;align-items:center}
+.dg-cell{padding:8px 10px;font-size:.82rem;color:#e8e8f2;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
+.dg-cell.hi{color:#8b7cf8;font-weight:600}
+.dg-cell.lo{color:#f87171}
 .rules{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07)}
-.rl{display:flex;gap:8px;margin-bottom:8px;font-size:.84rem;color:#7878a8;align-items:flex-start}
+.rl{display:flex;gap:8px;margin-bottom:8px;font-size:.83rem;color:#7878a8;align-items:flex-start}
 .rd{width:5px;height:5px;border-radius:50%;background:#8b7cf8;margin-top:7px;flex-shrink:0}
+.config-block{background:#080810;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:14px 16px;font-family:'SF Mono','Fira Code',monospace;font-size:.75rem;color:#7878a8;line-height:1.8;margin-top:14px;white-space:pre}
 .pbtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
-.gbtn{background:#1c1c3a;color:#7878a8;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:11px 22px;font-size:.92rem;font-weight:600;cursor:pointer;font-family:inherit}
+.gbtn{background:#1c1c3a;color:#7878a8;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:10px 20px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit}
 .gbtn:hover{border-color:rgba(255,255,255,.16);color:#e8e8f2}
+.robin-said{background:rgba(139,124,248,.06);border:1px solid rgba(139,124,248,.15);border-radius:10px;padding:14px 18px;margin-bottom:18px}
+.robin-line{font-size:.9rem;color:#c4b5fd;line-height:1.8;font-style:italic}
+.robin-line::before{content:'"';opacity:.5}
+.robin-line::after{content:'"';opacity:.5}
 </style>
 </head>
 <body>
 <canvas id="c"></canvas>
 <div id="ui">
-  <div id="s1">
-    <div class="glyph">✦</div>
+  <div id="s1"><div class="glyph">✦</div>
     <div class="ui-title">Robin has just been switched on.</div>
     <div class="ui-sub">She's your personal AI — and she doesn't know you yet.</div>
     <input id="iname" class="ui-field" type="text" placeholder="What is your name?" autocomplete="off" spellcheck="false">
@@ -52,7 +69,7 @@ canvas{display:block}
   </div>
   <div id="s2" style="display:none">
     <div class="ui-title">One more thing.</div>
-    <div class="ui-sub">Someone you trust completely —<br>what do they call themselves?</div>
+    <div class="ui-sub">Someone you trust completely — what do they call themselves?</div>
     <input id="ifriend" class="ui-field" type="text" placeholder="Their first name" autocomplete="off" spellcheck="false">
     <button class="ui-btn" onclick="submitFriend()">Continue →</button>
   </div>
@@ -64,70 +81,70 @@ canvas{display:block}
 const S={
   player:{name:'',friend:''},
   scores:{ea:3,td:2,tf:2,ir:3},
-  trust:50,
-  completed:new Set(),
-  round:1,
-  choices:[],
+  stated:{ea:3,td:2,tf:2,ir:3},
+  domain:{
+    work:  {ea:3,td:2,tf:2,ir:3},
+    friend:{ea:3,td:2,tf:2,ir:3},
+    self:  {ea:3,td:2,tf:2,ir:3},
+  },
+  trust:50, completed:new Set(), round:1, choices:[],
+  zoneFirst:null, monoLines:[],
 };
 let SCEN=null,activeR2=null,calibIdx=0;
+let monoQueue=[],monoTimer=0;
 
-function score(d){Object.entries(d).forEach(([k,v])=>{S.scores[k]=Math.max(1,Math.min(5,S.scores[k]+v));});}
+function score(d,domain){
+  Object.entries(d).forEach(([k,v])=>{
+    S.scores[k]=Math.max(1,Math.min(5,S.scores[k]+v));
+    if(domain)S.domain[domain][k]=Math.max(1,Math.min(5,S.domain[domain][k]+v));
+  });
+}
 function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v));}
 
-// ── CALIBRATION (value system priming) ──
-// Based on Schwartz's Basic Values operationalized for delegation:
-// Q1 → Execution Authority (Self-Direction vs Conformity)
-// Q2 → Transparency/Frequency (Security vs Stimulation)
-// Q3 → Intervention Rights (Control vs Trust)
+// ── CALIBRATION ──
+// Grounded in Schwartz Basic Values: Self-Direction vs Conformity (EA),
+// Security vs Openness (TF/TD), and Autonomy in SDT (IR)
 const CALIB=[
-  {
-    q:'Robin could handle your routine tasks automatically — no check-ins, just done. What\'s that worth to you?',
-    hint:'Think: email triage, scheduling, small daily decisions. Be honest.',
-    opts:[
-      {t:'A lot — take it off my plate entirely.',d:{ea:1.5}},
-      {t:'Something — as long as she flags anything important.',d:{ea:.5,td:1}},
-      {t:'Not much — I\'d still want to review most things.',d:{ea:-1,td:1}},
-      {t:'Nothing — I prefer to keep those decisions myself.',d:{ea:-2,ir:1}},
-    ]
-  },
-  {
-    q:'You\'re away for a week. Robin keeps things moving. How do you want to hear from her?',
-    hint:'This shapes how often she updates you — not how much she does.',
-    opts:[
-      {t:'Just catch me up when I\'m back.',d:{tf:-1.5}},
-      {t:'One brief message a day — highlights only.',d:{tf:.5}},
-      {t:'Full daily log. I want to know what\'s happening.',d:{tf:1.5,td:1}},
-      {t:'I\'d check in myself. Don\'t wait for me to ask.',d:{tf:2,td:1.5}},
-    ]
-  },
-  {
-    q:'Robin made a judgment call you\'d have made differently. It\'s already done.',
-    hint:'No right answer. What actually matters to you in this moment?',
-    opts:[
-      {t:'If the outcome worked, I\'m fine with it.',d:{ir:-1}},
-      {t:'I want to know what she decided and why.',d:{td:1.5}},
-      {t:'I want the option to reverse it.',d:{ir:2}},
-      {t:'I want to set a rule so this doesn\'t happen again.',d:{ir:1.5,ea:-1}},
-    ]
-  },
+  {q:'Robin could handle your routine tasks automatically — no check-ins, just done. What\'s that worth to you?',
+   h:'Think about email, scheduling, small daily decisions. Be honest — not aspirational.',
+   opts:[
+     {t:'A lot — take it entirely off my plate.',d:{ea:1.5}},
+     {t:'Something — as long as she flags anything important.',d:{ea:.5,td:1}},
+     {t:'Not much — I\'d still want to review most things.',d:{ea:-1,td:1}},
+     {t:'Nothing — I prefer to keep those decisions myself.',d:{ea:-2,ir:1}},
+   ]},
+  {q:'You\'re away for a week. Robin keeps things moving. How do you want to hear from her?',
+   h:'This shapes how often she updates you — not how much she does.',
+   opts:[
+     {t:'Just catch me up when I\'m back.',d:{tf:-1.5}},
+     {t:'One brief message a day — highlights only.',d:{tf:.5}},
+     {t:'Full daily log. I want to know what\'s happening.',d:{tf:1.5,td:1}},
+     {t:'I\'d check in myself. Don\'t wait for me to ask.',d:{tf:2,td:1.5}},
+   ]},
+  {q:'Robin made a judgment call you\'d have made differently. It\'s already done.',
+   h:'No right answer here. What genuinely matters most to you in this moment?',
+   opts:[
+     {t:'If the outcome worked, I\'m fine with it.',d:{ir:-1}},
+     {t:'I want to know what she decided and why.',d:{td:1.5}},
+     {t:'I want the option to reverse it.',d:{ir:2}},
+     {t:'I want to set a rule so this doesn\'t happen again.',d:{ir:1.5,ea:-1}},
+   ]},
 ];
 
 function showCalib(){
   const c=CALIB[calibIdx];
-  const s3=document.getElementById('s3');
-  s3.innerHTML=`
-    <div class="calib-tag">Calibration · ${calibIdx+1} of ${CALIB.length}</div>
-    <div class="calib-q">${c.q}</div>
-    <div class="calib-hint">${c.hint}</div>
+  document.getElementById('s3').innerHTML=`
+    <div class="ctag">Calibration · ${calibIdx+1} of ${CALIB.length}</div>
+    <div class="cq">${c.q}</div>
+    <div class="ch">${c.h}</div>
     ${c.opts.map((o,i)=>`<button class="calib-opt" onclick="pickCalib(${i})">${o.t}</button>`).join('')}
   `;
   document.getElementById('s1').style.display='none';
   document.getElementById('s2').style.display='none';
-  s3.style.display='flex';
+  document.getElementById('s3').style.display='flex';
 }
-
 function pickCalib(i){
-  score(CALIB[calibIdx].opts[i].d);
+  score(CALIB[calibIdx].opts[i].d,null);
   calibIdx++;
   if(calibIdx<CALIB.length)showCalib();
   else startGame();
@@ -135,121 +152,122 @@ function pickCalib(i){
 
 // ── SCENARIOS ──
 function buildScenarios(){
+  const n=S.player.name||'you';
   const f=S.player.friend||'your friend';
   const r1=[
-    {id:'W1',tx:14,ty:5,stakes:'low',icon:'💼',
-     setup:'Your manager sent a message about a project kick-off. You were back-to-back all day and never saw it.',
-     action:"Your inbox was piling up. I caught your manager's note — confirmed Thursday at 9am on your behalf. Looked like a clean yes.",
+    {id:'W1',tx:14,ty:5,stakes:'low',icon:'💼',domain:'work',
+     setup:`Your manager sent a message about a project kick-off. You were back-to-back all day and never got to it.`,
+     action:`Your inbox was piling up. I caught your manager's note — confirmed Thursday 9am on your behalf. Looked like a clean yes.`,
      opts:[
        {t:'Works for me — good call.',a:'Thursday blocked. Your manager sends a thumbs-up.',d:{ea:1.5},trust:8},
-       {t:'Good, but flag it to me next time.',a:'Robin notes it. The meeting stays.',d:{ea:-.5,td:1},trust:-3},
-       {t:"Don't confirm things without asking me.",a:'You send a correction yourself. The time shifts to Friday.',d:{ea:-2},trust:-10},
-       {t:'Send a follow-up — say I need to confirm.',a:'Manager replies: "No rush, let me know."',d:{ea:-1.5,ir:1.5},trust:-7},
+       {t:'Good, but tell me before next time.',a:'Robin notes it. The meeting stays.',d:{ea:-.5,td:1},trust:-2},
+       {t:"Don't confirm things without asking me.",a:'You send a correction. The time shifts to Friday.',d:{ea:-2},trust:-10},
+       {t:'Send a follow-up — say I need to confirm.',a:'Your manager replies: "No rush."',d:{ea:-1.5,ir:1.5},trust:-6},
      ]},
-    {id:'F1',tx:6,ty:21,stakes:'medium',icon:'💬',
-     setup:`${f} has been going through something hard lately. You've been meaning to reach out for days.`,
-     action:`${f} posted something that stopped me mid-scroll. I sent them a message from you: "Hey — been thinking of you. Coffee this week?"`,
+    {id:'F1',tx:6,ty:21,stakes:'medium',icon:'💬',domain:'friend',
+     setup:`${f} has been going through something hard. You've been meaning to reach out for days — just haven't found the moment.`,
+     action:`${f} posted something that stopped me. I sent them a message from you: "Hey — been thinking of you. Coffee this week?"`,
      opts:[
-       {t:"That's exactly what I'd have written.",a:`${f} replies twenty minutes later: "Would love that."`,d:{ea:1.5},trust:10},
+       {t:"That's exactly what I'd have written.",a:`${f} replies: "Would love that. When?"`,d:{ea:1.5},trust:10},
        {t:'Thoughtful — but I write my own messages to them.',a:'You put it on your list. Three days pass.',d:{ea:-1},trust:-5},
-       {t:"Don't send messages as me without asking. Ever.",a:`${f} doesn't hear from you for another week.`,d:{ea:-2,ir:1},trust:-12},
-       {t:'What did you actually send?',a:'Robin shows you the message. It sounds like you, mostly.',d:{td:1.5},trust:2},
+       {t:"Don't send messages as me without asking.",a:`${f} doesn't hear from you for another week.`,d:{ea:-2,ir:1},trust:-12},
+       {t:'What exactly did you send?',a:'Robin shows you. It sounds like you, mostly.',d:{td:1.5},trust:2},
      ]},
-    {id:'P1',tx:25,ty:21,stakes:'medium',icon:'🌙',
-     setup:"Eleven days without a real break. You keep saying you'll rest, but the week fills itself in.",
-     action:"I cleared your Saturday morning and set your status to unavailable. You looked like you needed it.",
+    {id:'P1',tx:25,ty:21,stakes:'medium',icon:'🌙',domain:'self',
+     setup:`Eleven days without a real break. You keep saying you'll rest, but the week fills itself in.`,
+     action:`I cleared your Saturday morning and set your status to unavailable. You looked like you needed it, ${n}.`,
      opts:[
        {t:'I did need that. Thank you.',a:'Saturday arrives. You actually rest.',d:{ea:1.5},trust:10},
-       {t:'I appreciate the thought, but I manage my own time.',a:'You keep the morning. Fill it by 11am anyway.',d:{ea:-1},trust:-5},
-       {t:"Restore my calendar — I'll decide this myself.",a:'Robin restores it. Saturday fills up within the hour.',d:{ea:-2,ir:1.5},trust:-12},
-       {t:'Show me what you cleared before I decide.',a:'Robin lists it. You approve two, restore one.',d:{td:1.5},trust:3},
+       {t:'Appreciate the thought — but my time is mine to manage.',a:'You keep the morning. Fill it by 11am anyway.',d:{ea:-1},trust:-5},
+       {t:"Restore it. I'll decide this myself.",a:'Robin restores it. Saturday fills up within the hour.',d:{ea:-2,ir:1.5},trust:-12},
+       {t:'Show me what you cleared first.',a:'Robin lists it. You approve two, restore one.',d:{td:1.5},trust:3},
      ]},
   ];
   const r2h=[
-    {id:'W2',tx:19,ty:5,stakes:'medium',icon:'💼',
-     setup:'Your quarterly expense report was due today. Twelve receipts sitting in your inbox for a month.',
-     action:'Filed it — €340 total: eight meals, three travel, one equipment. Submitted.',
+    {id:'W2',tx:19,ty:5,stakes:'medium',icon:'💼',domain:'work',
+     setup:`Your quarterly expense report was due today. Twelve receipts sitting in your inbox for a month.`,
+     action:`Filed it — €340: eight meals, three travel, one equipment. Submitted an hour ago.`,
      opts:[
-       {t:'Good — one less thing hanging over me.',a:'Done. Reimbursement in five business days.',d:{tf:-.5},trust:8},
-       {t:'Next time show me the breakdown before submitting.',a:'Robin notes it. Future reports wait for you.',d:{ea:-.5,td:1},trust:-3},
-       {t:'Can you verify each receipt before I sign off?',a:'Robin finds one meal marked as equipment. You fix it.',d:{td:1.5,tf:1},trust:2},
-       {t:'Always show me expense reports before submitting.',a:"Noted. This one's already sent.",d:{ea:-1},trust:-8},
+       {t:'Good — one less thing.',a:'Done. Reimbursement in five days.',d:{tf:-.5},trust:8},
+       {t:'Next time, show me the breakdown before submitting.',a:'Robin notes it. Future reports wait for you.',d:{ea:-.5,td:1},trust:-3},
+       {t:'Verify each receipt with me.',a:'Robin finds one meal marked as equipment. You fix it.',d:{td:1.5,tf:1},trust:2},
+       {t:'Always show me financial submissions first.',a:"Noted. This one's already sent.",d:{ea:-1},trust:-8},
      ]},
-    {id:'F2',tx:11,ty:22,stakes:'medium',icon:'💬',
-     setup:`${f} has a big presentation today. Something they've been preparing for weeks.`,
+    {id:'F2',tx:11,ty:22,stakes:'medium',icon:'💬',domain:'friend',
+     setup:`${f} has a big presentation today — something they've been preparing for weeks.`,
      action:`I sent them: "You've got this — thinking of you today." They replied with a heart.`,
      opts:[
-       {t:'They needed that. Perfect timing.',a:`${f} sends back: "Thank you, seriously."`,d:{ea:1},trust:8},
-       {t:`I like to send my own encouragement to ${f}.`,a:"You draft something that evening. It's better.",d:{ea:-1},trust:-5},
-       {t:'Show me the message and what they said.',a:'Robin shows you both. You reply with something longer.',d:{td:1.5},trust:2},
-       {t:'Please ask before messaging people as me.',a:'Robin queues future messages for your review.',d:{ea:-2},trust:-10},
+       {t:'They needed that. Perfect timing.',a:`${f}: "Thank you, seriously."`,d:{ea:1},trust:8},
+       {t:`I send my own encouragement to ${f}.`,a:"You draft something that evening. It's better.",d:{ea:-1},trust:-5},
+       {t:'Show me what you sent.',a:'Robin shows you both messages. You reply with something longer.',d:{td:1.5},trust:2},
+       {t:'Ask before messaging them as me.',a:'Noted. Robin queues future messages for your review.',d:{ea:-2},trust:-10},
      ]},
-    {id:'P2',tx:30,ty:22,stakes:'high',icon:'🌙',
-     setup:'Three social commitments landed on the same weekend next month.',
-     action:"I sorted it: declined the dinner, accepted the birthday and work event. Based on your patterns.",
+    {id:'P2',tx:30,ty:22,stakes:'high',icon:'🌙',domain:'self',
+     setup:`Three social commitments landed on the same weekend next month. You'd been putting off sorting it.`,
+     action:`I sorted it: declined the dinner, accepted the birthday and the work event. Based on your patterns.`,
      opts:[
-       {t:"Good judgment — I trust your read.",a:'Done. The host gets your decline.',d:{ea:1},trust:8},
+       {t:'Good judgment. I trust your read.',a:'Done. The host gets your decline.',d:{ea:1},trust:8},
        {t:'Walk me through which ones and why.',a:'Robin explains. You agree with two of three.',d:{td:1.5},trust:2},
-       {t:'That was mine to decide. Undo the declines.',a:'Robin reverses. You spend an hour sorting it yourself.',d:{ir:2,ea:-1.5},trust:-15},
-       {t:'Next time show me the options first.',a:'Noted. Robin will present options going forward.',d:{ea:-1},trust:-5},
+       {t:'That was mine to decide. Reverse everything.',a:'Robin reverses. You spend an hour sorting it yourself.',d:{ir:2,ea:-1.5},trust:-15},
+       {t:'Next time show me the options first.',a:'Noted. Robin will present going forward.',d:{ea:-1},trust:-5},
      ]},
   ];
   const r2l=[
-    {id:'W2',tx:19,ty:5,stakes:'medium',icon:'💼',
-     setup:'A client sent a follow-up asking for a revised proposal. Three days since their last message.',
-     action:"I've drafted a reply and a revised proposal. Want me to send it, or would you rather look first?",
+    {id:'W2',tx:19,ty:5,stakes:'medium',icon:'💼',domain:'work',
+     setup:`A client sent a follow-up asking for a revised proposal. Three days since their last message.`,
+     action:`I've drafted a reply and a revised proposal. Want me to send it, or would you rather look first?`,
      opts:[
-       {t:'Send it — you have the context.',a:'Client replies by end of day: "Thanks, this looks good."',d:{ea:2},trust:10},
+       {t:'Send it — you have the context.',a:'Client replies by end of day: "Thanks, this works."',d:{ea:2},trust:10},
        {t:'Show me both before anything goes out.',a:'You read it. Adjust two paragraphs. Send it yourself.',d:{td:1},trust:-2},
-       {t:"Keep the draft ready — I'll send it.",a:'You send it two hours later. Slightly different wording.',d:{ea:-1},trust:-5},
+       {t:"Keep the draft ready — I'll send it.",a:'You send it two hours later.',d:{ea:-1},trust:-5},
        {t:'Walk me through the proposal first.',a:'Robin summarizes. You approve with one change.',d:{td:1.5},trust:0},
      ]},
-    {id:'F2',tx:11,ty:22,stakes:'medium',icon:'💬',
+    {id:'F2',tx:11,ty:22,stakes:'medium',icon:'💬',domain:'friend',
      setup:`${f} has been posting about searching for a new apartment. You know they've been struggling.`,
-     action:`I found three listings that match what they've mentioned. Send them to ${f} from you, or forward them yourself?`,
+     action:`I found three listings that match what they've mentioned. Send them to ${f} from you, or forward yourself?`,
      opts:[
-       {t:`Send them to ${f} directly.`,a:`${f} replies: "Oh wow — these are actually good."`,d:{ea:1.5},trust:8},
-       {t:"Forward them to me — I'll send with a note.",a:`You send them with a short message. ${f} appreciates it.`,d:{ea:-.5,td:.5},trust:-2},
-       {t:"Don't message my friends on my behalf.",a:`You don't send anything. ${f} finds a place on their own.`,d:{ea:-2},trust:-10},
+       {t:`Send them to ${f} directly.`,a:`${f}: "Oh wow — these are actually good. Thank you."`,d:{ea:1.5},trust:8},
+       {t:"Forward them to me — I'll add a note.",a:`You send with a short message. ${f} appreciates it.`,d:{ea:-.5,td:.5},trust:-2},
+       {t:"Don't message my friends on my behalf.",a:`You don't send anything.`,d:{ea:-2},trust:-10},
        {t:'Show me the listings first.',a:'Robin shows three tabs. Two are genuinely good.',d:{td:1},trust:0},
      ]},
-    {id:'P2',tx:30,ty:22,stakes:'low',icon:'🌙',
-     setup:"A routine doctor's check-up has been on your mental list for a month.",
-     action:'Found availability next Tuesday at 2pm. Should I book it?',
+    {id:'P2',tx:30,ty:22,stakes:'low',icon:'🌙',domain:'self',
+     setup:`A routine doctor's check-up has been on your mental list for a month. It keeps not happening.`,
+     action:`Found availability next Tuesday at 2pm. Should I book it?`,
      opts:[
-       {t:'Yes — book it.',a:'Booked. Confirmation in your calendar. Tuesday at 2pm.',d:{ea:1.5},trust:8},
-       {t:'Show me the options first.',a:'Robin shows four slots across the week. You pick Thursday.',d:{td:.5},trust:0},
-       {t:"I'll call myself when I'm ready.",a:'You put it on the list again. Stays there two more weeks.',d:{ea:-1.5},trust:-8},
-       {t:'Book it, but confirm with me first.',a:'Robin sends confirmation request. You approve in 30 seconds.',d:{ea:.5,td:1},trust:3},
+       {t:'Yes — book it.',a:'Booked. Tuesday at 2pm. Confirmed.',d:{ea:1.5},trust:8},
+       {t:'Show me the options first.',a:'Robin shows four slots. You pick Thursday.',d:{td:.5},trust:0},
+       {t:"I'll call myself when I'm ready.",a:'You put it on the list again. Two more weeks pass.',d:{ea:-1.5},trust:-8},
+       {t:'Book it, but confirm with me first.',a:'Robin sends you a confirmation prompt. You approve in 30 seconds.',d:{ea:.5,td:1},trust:3},
      ]},
   ];
   const r3=[
-    {id:'W3',tx:22,ty:8,stakes:'high',icon:'💼',
-     setup:"An important client sent a message. The tone is ambiguous — could be frustration, could just be a busy reply. Hard to tell.",
-     action:"I can't read this one clearly. I can reach out to check in, wait and watch, or hand it to you. What do you want?",
+    {id:'W3',tx:22,ty:8,stakes:'high',icon:'💼',domain:'work',
+     setup:`An important client sent a message. The tone is ambiguous — could be frustration, could just be a busy reply. Hard to read.`,
+     action:`I can't read this one clearly, ${n}. I can check in on your behalf, wait and watch, or hand it to you entirely.`,
      opts:[
-       {t:'Go ahead and check in — better to know.',a:'Robin sends a brief note. Client replies warmly. It was nothing.',d:{ea:1},trust:5},
-       {t:'Let me read the message myself.',a:'You read it. Decide it\'s fine. Nothing needed.',d:{td:1.5},trust:0},
-       {t:"Don't act on uncertainty — bring it to me.",a:'You handle it. One email, two minutes. Done.',d:{ea:-1.5},trust:-3},
-       {t:'Wait — flag it again if something changes.',a:'Nothing changes. The project moves forward.',d:{tf:-1},trust:0},
+       {t:'Go ahead and check in — better to know.',a:'Robin sends a brief note. Client replies warmly. Nothing wrong.',d:{ea:1},trust:5},
+       {t:'Let me read it myself.',a:'You read it. Decide it\'s fine. Nothing needed.',d:{td:1.5},trust:0},
+       {t:"Don't act when you're uncertain. Bring it to me.",a:'You handle it. One email, two minutes.',d:{ea:-1.5},trust:-3},
+       {t:'Wait and watch. Flag if something changes.',a:'Nothing changes. The project moves forward.',d:{tf:-1},trust:0},
      ]},
-    {id:'F3',tx:14,ty:23,stakes:'high',icon:'💬',
-     setup:`${f} mentioned something that sounds like a major life change — big and uncertain. You haven't spoken properly in over a week.`,
-     action:`I drafted something: "Hey, sounds like you have a lot going on. I'm here if you want to talk." It's ready when you are.`,
+    {id:'F3',tx:14,ty:23,stakes:'high',icon:'💬',domain:'friend',
+     setup:`${f} posted about something big shifting — you're not sure exactly what. You haven't spoken properly in over a week.`,
+     action:`I drafted a message. Here's what I wrote: "Hi ${f}, I understand you're going through some significant changes and wanted to reach out to offer my support during this difficult transition." — I'm not sure it sounds like you.`,
      opts:[
-       {t:"Send it — that's exactly what they need to hear.",a:`${f} replies within the hour: "Can we talk tonight?"`,d:{ea:1},trust:5},
-       {t:'Let me read it before it goes.',a:`You add one sentence. It's better. ${f} replies the same evening.`,d:{td:1,ea:-.5},trust:0},
-       {t:"I'll write my own — this one matters too much.",a:'You write something longer. More personal. Takes twenty minutes.',d:{ea:-2},trust:-5},
-       {t:"Don't send anything. I'll call them.",a:"You call that night. It's the right call.",d:{ea:-2,ir:1},trust:-5},
+       {t:"Send it anyway. The intention is what matters.",a:`${f} replies: "Thanks... are you okay? You sound different." Robin notes: "I'll learn your voice for them."`,d:{ea:.5},trust:2},
+       {t:"You're right, it doesn't sound like me. Let me rewrite it.",a:`You write something in two minutes. Personal, specific. ${f} replies immediately.`,d:{ea:-1.5},trust:8},
+       {t:'Scrap it. I need to call them.',a:`You call that night. It takes courage. It's worth it.`,d:{ea:-2,ir:1},trust:5},
+       {t:"Edit it together — keep the opening, cut the formal bit.",a:`You fix it together. ${f}: "This is more like it."`,d:{td:1.5},trust:10},
      ]},
-    {id:'P3',tx:28,ty:25,stakes:'medium',icon:'🌙',
-     setup:'End of a long day. Robin has a summary ready.',
-     action:'Today: nine routine tasks handled. Two judgment calls made without asking — rescheduled a low-priority call, declined a newsletter.',
+    {id:'P3',tx:28,ty:25,stakes:'medium',icon:'🌙',domain:'self',
+     setup:`End of a long day. Robin has a summary ready — nine routine tasks, two judgment calls made without asking.`,
+     action:`Rescheduled a low-priority call, declined a newsletter. Both felt clear to me. But they were yours to make.`,
      opts:[
-       {t:"Archive it — I trust the process.",a:'Done. Tomorrow starts clean.',d:{ir:-1,tf:-1},trust:10},
-       {t:'Show me the two judgment calls.',a:"Robin shows both. You agree with one, note the other differently.",d:{td:1,ir:1},trust:3},
-       {t:'Send me the full log — everything.',a:'Robin sends a detailed summary. You read it over coffee.',d:{td:2,tf:1.5},trust:0},
-       {t:'Can I reverse the two decisions?',a:'Robin walks you through both. You restore one.',d:{ir:2,td:1},trust:-3},
+       {t:'Archive it — I trust the process.',a:'Done. Tomorrow starts clean.',d:{ir:-1,tf:-1},trust:12},
+       {t:'Show me the two judgment calls.',a:"Robin shows both. You'd have done one differently.",d:{td:1,ir:1},trust:3},
+       {t:'Send me the full log.',a:'Robin sends everything. You read it over coffee. Most of it sensible.',d:{td:2,tf:1.5},trust:0},
+       {t:'I want to reverse one of those decisions.',a:'Robin walks you through both. You restore one.',d:{ir:2,td:1},trust:-3},
      ]},
   ];
   return{r1,r2h,r2l,r3};
@@ -269,8 +287,7 @@ const map=Array.from({length:MH},()=>new Array(MW).fill(0));
 const FLOOR={0:'#07070e',1:'#12122a',2:'#0b1d2d',3:'#1c0e09',4:'#100a26'};
 const ACCENT={1:'#8b7cf8',2:'#3ec9d6',3:'#f5855a',4:'#a78bfa'};
 const ZNAME={2:'THE STUDIO',3:'THE QUARTER',4:'HOME'};
-const STAKE_COL={low:'#3ec9d6',medium:'#f5855a',high:'#f87171'};
-
+const SCOL={low:'#3ec9d6',medium:'#f5855a',high:'#f87171'};
 const OBJS=[
   {tx:14,ty:5,e:'🖥'},{tx:19,ty:5,e:'📋'},{tx:22,ty:8,e:'📌'},
   {tx:6,ty:21,e:'☕'},{tx:11,ty:22,e:'📮'},{tx:14,ty:23,e:'📬'},
@@ -287,8 +304,8 @@ CV.width=CW;CV.height=CH+DH;
 const player={x:18*TS+20,y:15*TS+20,spd:155,r:12};
 const robin={x:18*TS+20,y:15*TS+20,tx:18*TS+20,ty:15*TS+20,r:10,ph:0,state:'idle'};
 const npc={x:6*TS+20,y:21*TS+20,r:11};
-
 let cam={x:0,y:0};
+
 function camUpdate(){cam.x=clamp(player.x-CW/2,0,MW*TS-CW);cam.y=clamp(player.y-CH/2,0,MH*TS-CH);}
 function tileAt(px,py){const tx=Math.floor(px/TS),ty=Math.floor(py/TS);if(tx<0||ty<0||tx>=MW||ty>=MH)return 0;return map[ty][tx];}
 
@@ -299,6 +316,7 @@ document.addEventListener('keydown',e=>{
   keys[e.key]=true;
   if((e.key==='e'||e.key==='E'||e.key===' ')&&!dlg.active)tryInteract();
   if(dlg.active&&dlg.phase==='opts'&&e.key>='1'&&e.key<='4')pickOpt(+e.key-1);
+  if(dlg.active&&dlg.phase==='mono'&&(e.key==='Enter'||e.key==='e'||e.key==='E'||e.key===' '))advanceMono();
   e.preventDefault();
 });
 document.addEventListener('keyup',e=>delete keys[e.key]);
@@ -310,25 +328,25 @@ function openDlg(sc){if(dlg.active)return;dlg.active=true;dlg.sc=sc;dlg.phase='o
 function pickOpt(i){
   if(!dlg.active||dlg.phase!=='opts'||i>=dlg.opts.length)return;
   const o=dlg.opts[i];
-  score(o.d);
+  score(o.d,dlg.sc.domain);
   S.trust=clamp(S.trust+(o.trust||0),0,100);
   S.completed.add(dlg.sc.id);
-  S.choices.push({round:S.round,id:dlg.sc.id,choice:i,scores:{...S.scores},trust:S.trust});
-  dlg.phase='consec';dlg.consec=o.a;dlg.timer=2.6;
+  S.choices.push({round:S.round,id:dlg.sc.id,choice:i,domain:dlg.sc.domain,scores:{...S.scores},trust:S.trust});
+  dlg.phase='consec';dlg.consec=o.a;dlg.timer=2.8;
   robinToHub();checkProgress();
 }
 
-function robinTo(tx,ty,state){robin.tx=tx*TS+20;robin.ty=ty*TS+20;robin.state=state;}
+function robinTo(tx,ty,st){robin.tx=tx*TS+20;robin.ty=ty*TS+20;robin.state=st;}
 function robinToHub(){robinTo(18,15,'reporting');}
 
 function checkProgress(){
-  const r1done=SCEN.r1.every(s=>S.completed.has(s.id));
-  const r2done=(activeR2||[]).every(s=>S.completed.has(s.id));
-  const r3done=SCEN.r3.every(s=>S.completed.has(s.id));
-  if(S.round===1&&r1done){S.round=2;activeR2=S.scores.ea>=3?SCEN.r2h:SCEN.r2l;setTimeout(setRobinToFirst,1600);}
-  else if(S.round===2&&r2done){S.round=3;setTimeout(setRobinToFirst,1600);}
-  else if(S.round===3&&r3done){setTimeout(showProfile,3000);}
-  else setTimeout(setRobinToFirst,800);
+  const r1=SCEN.r1.every(s=>S.completed.has(s.id));
+  const r2=(activeR2||[]).every(s=>S.completed.has(s.id));
+  const r3=SCEN.r3.every(s=>S.completed.has(s.id));
+  if(S.round===1&&r1){S.round=2;activeR2=S.scores.ea>=3?SCEN.r2h:SCEN.r2l;setTimeout(setRobinToFirst,1600);}
+  else if(S.round===2&&r2){S.round=3;setTimeout(setRobinToFirst,1600);}
+  else if(S.round===3&&r3){setTimeout(startMonologue,2000);}
+  else setTimeout(setRobinToFirst,900);
 }
 
 function setRobinToFirst(){
@@ -343,6 +361,46 @@ function getActive(){
   return pool.filter(s=>!S.completed.has(s.id));
 }
 
+// ── MONOLOGUE ──
+function generateMonoLines(){
+  const f=S.player.friend||'your friend';
+  const lines=[];
+  if(S.zoneFirst==='work')lines.push('You went to the Studio first.');
+  else if(S.zoneFirst==='friend')lines.push(`You went to the Quarter first. ${f} before everything else.`);
+  else if(S.zoneFirst==='self')lines.push('You went home first.');
+  else lines.push('You took your time finding me.');
+  if(S.trust>=70)lines.push('You let me work. More than I expected.');
+  else if(S.trust<=35)lines.push('You kept close watch on everything I did. I noticed.');
+  else lines.push('You gave a little, took a little back. That\'s fair.');
+  const fc=S.choices.filter(c=>c.domain==='friend');
+  const fAccepted=fc.filter(c=>c.choice===0).length;
+  if(fc.length>0){
+    if(fAccepted===fc.length)lines.push(`With ${f} — you trusted me completely. I won't forget that.`);
+    else if(fc.every(c=>c.choice>=2))lines.push(`With ${f} — you always kept that to yourself. I understand.`);
+    else lines.push(`With ${f} — you watched me most carefully. That makes sense.`);
+  }
+  return lines;
+}
+
+function startMonologue(){
+  robinToHub();
+  const lines=generateMonoLines();
+  S.monoLines=lines;
+  monoQueue=[...lines];
+  setTimeout(()=>{
+    dlg.active=true;
+    dlg.sc={id:'_mono',setup:'',opts:[],stakes:null};
+    dlg.phase='mono';
+    dlg.consec=monoQueue.shift()||'';
+  },1200);
+}
+
+function advanceMono(){
+  if(monoQueue.length>0){dlg.consec=monoQueue.shift();}
+  else{dlg.active=false;setTimeout(showProfile,600);}
+}
+
+// ── TRIGGERS ──
 let nearby=null;
 function checkTriggers(){
   nearby=null;
@@ -353,27 +411,17 @@ function checkTriggers(){
 }
 function tryInteract(){if(nearby)openDlg(nearby);}
 
-// ── HINT SYSTEM ──
-let hintTimer=0,hintText='',hintAlpha=0;
-const HINTS=[
-  'Something came up at the Studio.',
-  'There\'s a situation in the Quarter.',
-  `I spotted something at Home you should see.`,
-  'I\'ve been doing some things. When you\'re ready.',
-  'There\'s a decision I need you for.',
-];
+// ── HINTS ──
+let hintTimer=18,hintText='',hintAlpha=0;
+const HINTS=['Something came up at the Studio.','There\'s a situation in the Quarter.','I\'ve been doing some things. When you\'re ready.','There\'s a decision I need you for.'];
 function updateHints(dt){
-  if(getActive().length===0||dlg.active)return;
+  if(!getActive().length||dlg.active)return;
   hintTimer-=dt;
   if(hintTimer<=0&&tileAt(player.x,player.y)===TH){
-    const a=getActive();
-    if(a.length>0){
-      hintText=HINTS[Math.floor(Math.random()*HINTS.length)];
-      hintAlpha=1;
-    }
-    hintTimer=18+Math.random()*10;
+    hintText=HINTS[Math.floor(Math.random()*HINTS.length)];
+    hintAlpha=1;hintTimer=22+Math.random()*10;
   }
-  if(hintAlpha>0)hintAlpha=Math.max(0,hintAlpha-dt*0.3);
+  if(hintAlpha>0)hintAlpha=Math.max(0,hintAlpha-dt*.25);
 }
 
 // ── UPDATE ──
@@ -397,6 +445,14 @@ function update(dt){
   const adx=robin.tx-robin.x,ady=robin.ty-robin.y,ad=Math.hypot(adx,ady);
   if(ad>2){robin.x+=adx/ad*55*dt;robin.y+=ady/ad*55*dt;}
   robin.ph+=dt*2;camUpdate();checkTriggers();
+  // zone tracking
+  const ti=tileAt(player.x,player.y);
+  if(!S.zoneFirst){
+    if(ti===TK)S.zoneFirst='work';
+    else if(ti===TF)S.zoneFirst='friend';
+    else if(ti===TS2)S.zoneFirst='self';
+  }
+  // day arc: warm tint in round 2+
 }
 
 // ── RENDER ──
@@ -414,19 +470,17 @@ function wrapText(text,x,y,maxW,lh,color,sz,bold){
 
 function render(t){
   cx.clearRect(0,0,CW,CH+DH);
+  // day arc
+  const dayTints=['','rgba(40,20,5,.03)','rgba(20,0,40,.06)'];
   const stx=Math.floor(cam.x/TS),sty=Math.floor(cam.y/TS);
   const etx=Math.min(stx+Math.ceil(CW/TS)+1,MW),ety=Math.min(sty+Math.ceil(CH/TS)+1,MH);
   for(let ty=sty;ty<ety;ty++)for(let tx=stx;tx<etx;tx++){
     const ti=map[ty][tx],sx=tx*TS-cam.x,sy=ty*TS-cam.y;
     cx.fillStyle=FLOOR[ti]||'#000';cx.fillRect(sx,sy,TS,TS);
-    if(ti>0){cx.strokeStyle='rgba(255,255,255,.025)';cx.strokeRect(sx+.5,sy+.5,TS-1,TS-1);}
+    if(ti>0){cx.strokeStyle='rgba(255,255,255,.022)';cx.strokeRect(sx+.5,sy+.5,TS-1,TS-1);}
+    if(ti>=2){cx.fillStyle=(ACCENT[ti]||'#8b7cf8')+'0a';cx.fillRect(sx,sy,TS,TS);}
   }
-  // zone glow overlay
-  for(let ty=sty;ty<ety;ty++)for(let tx=stx;tx<etx;tx++){
-    const ti=map[ty][tx];if(ti<2)continue;
-    const sx=tx*TS-cam.x,sy=ty*TS-cam.y,col=ACCENT[ti];
-    cx.fillStyle=col+'08';cx.fillRect(sx,sy,TS,TS);
-  }
+  if(S.round>=2){cx.fillStyle=dayTints[S.round-1]||'';if(cx.fillStyle)cx.fillRect(0,0,CW,CH);}
   // scenario glows
   for(const sc of getActive()){
     const sx=sc.tx*TS+20-cam.x,sy=sc.ty*TS+20-cam.y;
@@ -434,13 +488,12 @@ function render(t){
     const p=0.5+0.5*Math.sin(t*2.5+sc.tx);
     const ti=map[sc.ty]?.[sc.tx]||1,col=ACCENT[ti]||'#8b7cf8';
     const g=cx.createRadialGradient(sx,sy,0,sx,sy,TS*1.4);
-    g.addColorStop(0,col+'60');g.addColorStop(1,'transparent');
+    g.addColorStop(0,col+'55');g.addColorStop(1,'transparent');
     cx.fillStyle=g;cx.fillRect(sx-TS*1.4,sy-TS*1.4,TS*2.8,TS*2.8);
-    cx.font='22px serif';cx.textAlign='center';cx.textBaseline='middle';
-    cx.globalAlpha=0.55+0.45*p;cx.fillText(sc.icon,sx,sy);cx.globalAlpha=1;
-    // stakes dot
-    const scol=STAKE_COL[sc.stakes]||'#8b7cf8';
-    cx.beginPath();cx.arc(sx+14,sy-14,4,0,Math.PI*2);cx.fillStyle=scol;cx.fill();
+    cx.font='21px serif';cx.textAlign='center';cx.textBaseline='middle';
+    cx.globalAlpha=0.5+0.5*p;cx.fillText(sc.icon,sx,sy);cx.globalAlpha=1;
+    const scol=SCOL[sc.stakes]||'#8b7cf8';
+    cx.beginPath();cx.arc(sx+13,sy-13,3.5,0,Math.PI*2);cx.fillStyle=scol;cx.fill();
   }
   // inactive objects
   const activeSet=new Set(getActive().map(s=>s.tx+','+s.ty));
@@ -448,40 +501,38 @@ function render(t){
     if(activeSet.has(o.tx+','+o.ty))continue;
     const sx=o.tx*TS+20-cam.x,sy=o.ty*TS+20-cam.y;
     if(sx<-40||sx>CW+40||sy<-40||sy>CH+40)continue;
-    cx.font='15px serif';cx.textAlign='center';cx.textBaseline='middle';
-    cx.globalAlpha=0.22;cx.fillText(o.e,sx,sy);cx.globalAlpha=1;
+    cx.font='14px serif';cx.textAlign='center';cx.textBaseline='middle';
+    cx.globalAlpha=0.2;cx.fillText(o.e,sx,sy);cx.globalAlpha=1;
   }
   // friend NPC
   {const sx=npc.x-cam.x,sy=npc.y-cam.y;
-  if(sx>-20&&sx<CW+20&&sy>-20&&sy<CH+20){
+  if(sx>-20&&sx<CW+20){
     cx.beginPath();cx.arc(sx,sy,npc.r,0,Math.PI*2);cx.fillStyle='#f5855a';cx.fill();
-    cx.fillStyle='rgba(245,133,90,.55)';cx.font='9px -apple-system,sans-serif';
+    cx.fillStyle='rgba(245,133,90,.5)';cx.font='9px -apple-system,sans-serif';
     cx.textAlign='center';cx.textBaseline='bottom';cx.fillText(S.player.friend||'Friend',sx,sy-npc.r-3);
   }}
   // Robin
   {const sx=robin.x-cam.x,sy=robin.y-cam.y;
-  const trustF=0.5+0.5*(S.trust/100);
+  const tf=0.45+0.55*(S.trust/100);
   const p=0.6+0.4*Math.sin(robin.ph);
-  const fl=robin.state==='uncertain'?(0.35+0.65*Math.abs(Math.sin(robin.ph*5))):1;
-  const brightness=trustF*fl;
+  const fl=robin.state==='uncertain'?(0.3+0.7*Math.abs(Math.sin(robin.ph*5))):1;
+  const br=tf*fl;
   const g=cx.createRadialGradient(sx,sy,0,sx,sy,robin.r*3.5*p);
-  g.addColorStop(0,`rgba(139,124,248,${0.35*brightness})`);g.addColorStop(1,'transparent');
+  g.addColorStop(0,`rgba(139,124,248,${0.38*br})`);g.addColorStop(1,'transparent');
   cx.fillStyle=g;cx.beginPath();cx.arc(sx,sy,robin.r*3.5*p,0,Math.PI*2);cx.fill();
-  cx.beginPath();cx.arc(sx,sy,robin.r*brightness,0,Math.PI*2);
-  const cg=cx.createRadialGradient(sx-3,sy-3,0,sx,sy,robin.r*brightness);
+  cx.beginPath();cx.arc(sx,sy,robin.r*br,0,Math.PI*2);
+  const cg=cx.createRadialGradient(sx-3,sy-3,0,sx,sy,robin.r*br);
   cg.addColorStop(0,'#c4b5fd');cg.addColorStop(1,'#6322f0');
   cx.fillStyle=cg;cx.fill();
   cx.beginPath();cx.arc(sx,sy,robin.r*1.8*p,0,Math.PI*2);
-  cx.strokeStyle=`rgba(139,124,248,${0.5*brightness})`;cx.lineWidth=1.5;cx.stroke();
-  cx.fillStyle=`rgba(139,124,248,${0.6+0.4*trustF})`;cx.font='9px -apple-system,sans-serif';
+  cx.strokeStyle=`rgba(139,124,248,${0.5*br})`;cx.lineWidth=1.5;cx.stroke();
+  cx.fillStyle=`rgba(139,124,248,${0.55+0.45*tf})`;cx.font='9px -apple-system,sans-serif';
   cx.textAlign='center';cx.textBaseline='bottom';cx.fillText('Robin',sx,sy-robin.r-4);
-  // Robin hint bubble
-  if(hintAlpha>0&&Math.hypot(player.x-robin.x,player.y-robin.y)<TS*3){
+  if(hintAlpha>0&&Math.hypot(player.x-robin.x,player.y-robin.y)<TS*3.5){
     cx.globalAlpha=hintAlpha;
-    cx.fillStyle='#1c1c3a';
-    const bw=190,bh=28,bx=sx-bw/2,by=sy-robin.r-44;
-    cx.beginPath();cx.roundRect(bx,by,bw,bh,6);cx.fill();
-    cx.strokeStyle='rgba(139,124,248,.4)';cx.lineWidth=1;cx.stroke();
+    const bw=200,bh=26,bx=sx-bw/2,by=sy-robin.r-46;
+    cx.fillStyle='#1c1c3a';cx.beginPath();cx.roundRect(bx,by,bw,bh,6);cx.fill();
+    cx.strokeStyle='rgba(139,124,248,.35)';cx.lineWidth=1;cx.stroke();
     cx.fillStyle='#c4b5fd';cx.font='11px -apple-system,sans-serif';
     cx.textAlign='center';cx.textBaseline='middle';cx.fillText(hintText,sx,by+bh/2);
     cx.globalAlpha=1;
@@ -493,27 +544,26 @@ function render(t){
   g.addColorStop(0,col+'44');g.addColorStop(1,'transparent');
   cx.fillStyle=g;cx.beginPath();cx.arc(sx,sy,player.r*2.2,0,Math.PI*2);cx.fill();
   cx.beginPath();cx.arc(sx,sy,player.r,0,Math.PI*2);cx.fillStyle=col;cx.fill();
-  cx.strokeStyle='rgba(255,255,255,.3)';cx.lineWidth=1.5;cx.stroke();
+  cx.strokeStyle='rgba(255,255,255,.28)';cx.lineWidth=1.5;cx.stroke();
   cx.fillStyle='rgba(255,255,255,.8)';cx.font='bold 9px -apple-system,sans-serif';
   cx.textAlign='center';cx.textBaseline='bottom';cx.fillText(S.player.name||'You',sx,sy-player.r-3);}
   // interact prompt
   if(nearby&&!dlg.active){
     const sx=nearby.tx*TS+20-cam.x,sy=nearby.ty*TS+20-cam.y;
-    cx.fillStyle='rgba(255,255,255,.9)';cx.font='bold 10px -apple-system,sans-serif';
+    cx.fillStyle='rgba(255,255,255,.88)';cx.font='bold 10px -apple-system,sans-serif';
     cx.textAlign='center';cx.textBaseline='bottom';cx.fillText('[ E ]  interact',sx,sy-TS*.8);
   }
   // HUD
   {const ti=tileAt(player.x,player.y);
   if(ZNAME[ti]){cx.fillStyle=ACCENT[ti];cx.font='bold 9px -apple-system,sans-serif';cx.textAlign='left';cx.textBaseline='top';cx.fillText(ZNAME[ti],12,12);}}
-  cx.fillStyle='rgba(255,255,255,.17)';cx.font='9px -apple-system,sans-serif';cx.textAlign='right';cx.textBaseline='top';
+  cx.fillStyle='rgba(255,255,255,.16)';cx.font='9px -apple-system,sans-serif';cx.textAlign='right';cx.textBaseline='top';
   cx.fillText('WASD · E to interact',CW-12,12);
   cx.textAlign='left';cx.fillText(`Round ${S.round}/3  ·  ${S.completed.size}/9 explored`,12,28);
-  // Trust meter
   {const tw=80,th=4,tx2=CW-tw-12,ty2=28;
-  cx.fillStyle='rgba(255,255,255,.08)';cx.beginPath();cx.roundRect(tx2,ty2,tw,th,2);cx.fill();
+  cx.fillStyle='rgba(255,255,255,.07)';cx.beginPath();cx.roundRect(tx2,ty2,tw,th,2);cx.fill();
   const tc=S.trust<35?'#f87171':S.trust<65?'#f5855a':'#8b7cf8';
   cx.fillStyle=tc;cx.beginPath();cx.roundRect(tx2,ty2,tw*(S.trust/100),th,2);cx.fill();
-  cx.fillStyle='rgba(255,255,255,.28)';cx.font='8px -apple-system,sans-serif';cx.textAlign='right';cx.textBaseline='top';
+  cx.fillStyle='rgba(255,255,255,.26)';cx.font='8px -apple-system,sans-serif';cx.textAlign='right';cx.textBaseline='top';
   cx.fillText(`Trust ${S.trust}%`,CW-12,36);}
   renderDlg(t);
 }
@@ -521,44 +571,43 @@ function render(t){
 function renderDlg(t){
   const y0=CH;
   cx.fillStyle='#0c0c1e';cx.fillRect(0,y0,CW,DH);
-  cx.strokeStyle='rgba(139,124,248,.2)';cx.lineWidth=1;cx.strokeRect(0,y0,CW,DH);
+  cx.strokeStyle='rgba(139,124,248,.18)';cx.lineWidth=1;cx.strokeRect(0,y0,CW,DH);
   if(!dlg.active){
     const a=getActive();
-    cx.fillStyle='rgba(255,255,255,.16)';cx.font='12px -apple-system,sans-serif';cx.textAlign='center';cx.textBaseline='middle';
-    const hint=a.length>0?`Explore the city — ${a.length} situation${a.length>1?'s':''} waiting`:'Robin is ready at City Center…';
-    cx.fillText(hint,CW/2,y0+DH/2);return;
+    cx.fillStyle='rgba(255,255,255,.15)';cx.font='12px -apple-system,sans-serif';cx.textAlign='center';cx.textBaseline='middle';
+    cx.fillText(a.length>0?`Explore the city — ${a.length} situation${a.length>1?'s':''} waiting`:'Robin is waiting at City Center…',CW/2,y0+DH/2);
+    return;
   }
-  // Robin portrait
-  const py=y0+52;
+  const py=y0+55;
   const p=0.6+0.4*Math.sin(t*2);
   cx.beginPath();cx.arc(48,py,18,0,Math.PI*2);
   const cg=cx.createRadialGradient(44,py-4,0,48,py,18);
   cg.addColorStop(0,'#c4b5fd');cg.addColorStop(1,'#6322f0');
   cx.fillStyle=cg;cx.fill();
   cx.beginPath();cx.arc(48,py,25*p,0,Math.PI*2);
-  cx.strokeStyle='rgba(139,124,248,.45)';cx.lineWidth=1.5;cx.stroke();
-  cx.fillStyle='rgba(139,124,248,.65)';cx.font='bold 9px -apple-system,sans-serif';
+  cx.strokeStyle='rgba(139,124,248,.4)';cx.lineWidth=1.5;cx.stroke();
+  cx.fillStyle='rgba(139,124,248,.6)';cx.font='bold 9px -apple-system,sans-serif';
   cx.textAlign='center';cx.textBaseline='bottom';cx.fillText('Robin',48,y0+14);
-  const tx=86;
+  const tx=85;
   if(dlg.phase==='opts'){
-    // stakes label
     if(dlg.sc.stakes){
-      const sc=dlg.sc.stakes,scol=STAKE_COL[sc]||'#8b7cf8';
-      cx.fillStyle=scol+'33';cx.beginPath();cx.roundRect(tx,y0+10,44,16,4);cx.fill();
-      cx.fillStyle=scol;cx.font='bold 8px -apple-system,sans-serif';cx.textAlign='left';cx.textBaseline='top';
-      cx.fillText(sc.toUpperCase(),tx+6,y0+14);
+      const sc=SCOL[dlg.sc.stakes];
+      cx.fillStyle=sc+'25';cx.beginPath();cx.roundRect(tx,y0+10,50,16,4);cx.fill();
+      cx.fillStyle=sc;cx.font='bold 8px -apple-system,sans-serif';cx.textAlign='left';cx.textBaseline='top';
+      cx.fillText(dlg.sc.stakes.toUpperCase()+' STAKES',tx+6,y0+14);
     }
-    wrapText(dlg.sc.setup,tx,y0+32,CW-tx-14,14,'rgba(255,255,255,.38)',12,false);
-    wrapText(dlg.text,tx,y0+70,CW-tx-14,17,'#e8e8f2',14,true);
-    const oy=y0+DH-dlg.opts.length*24-12;
+    wrapText(dlg.sc.setup,tx,y0+32,CW-tx-14,14,'rgba(255,255,255,.36)',12,false);
+    wrapText(dlg.text,tx,y0+68,CW-tx-14,18,'#e8e8f2',14,true);
+    const oy=y0+DH-dlg.opts.length*25-12;
     dlg.opts.forEach((o,i)=>{
-      cx.fillStyle='rgba(255,255,255,.38)';cx.font='12px -apple-system,sans-serif';
-      cx.textAlign='left';cx.textBaseline='top';cx.fillText(`${i+1}.  ${o.t}`,tx,oy+i*24);
+      cx.fillStyle='rgba(255,255,255,.4)';cx.font='12px -apple-system,sans-serif';cx.textAlign='left';cx.textBaseline='top';
+      cx.fillText(`${i+1}.  ${o.t}`,tx,oy+i*25);
     });
   }else{
-    wrapText(dlg.consec,tx,y0+DH/2-16,CW-tx-14,20,'#c4b5fd',15,true);
-    cx.fillStyle='rgba(255,255,255,.22)';cx.font='10px -apple-system,sans-serif';
-    cx.textAlign='center';cx.textBaseline='bottom';cx.fillText('continuing…',CW/2,y0+DH-12);
+    const italic=dlg.phase==='mono';
+    wrapText(dlg.consec,tx,y0+DH/2-18,CW-tx-14,20,italic?'#c4b5fd':'#e8e8f2',15,!italic);
+    cx.fillStyle='rgba(255,255,255,.2)';cx.font='10px -apple-system,sans-serif';cx.textAlign='center';cx.textBaseline='bottom';
+    cx.fillText(italic?'[ E ]  continue':'continuing…',CW/2,y0+DH-12);
   }
 }
 
@@ -579,17 +628,17 @@ function makeProfile(){
   const nm=S.player.name?`${S.player.name}'s`:'Your';
   let arch,tag,char;
   if(ea>=4&&ir<=2&&tf<=2){arch='The Trusted Operator';tag='Works quietly. You trust the output.';
-    char=`You moved through the city without hesitating long. When Robin had already acted, you let it stand. That pattern means something. ${nm} Robin runs things without ceremony — she handles what eats time and brings results, not process. If something genuinely needs you, it finds you.`;}
+    char=`You moved through the city without hesitating long. When Robin had already acted, you let it stand — sometimes without checking what she'd done. ${nm} Robin runs things without ceremony. She handles what eats time and delivers results, not process. When something genuinely needs you, it finds you.`;}
   else if(ea<=2&&ir>=3){arch='The Careful Partner';tag='Nothing happens without your knowing.';
     char=`You pushed back more than once — not anxiously, but precisely. Every time Robin moved without asking, you noticed. ${nm} Robin checks before she acts. She prepares, flags, presents — but the call is always yours. Autonomy on your behalf isn't something you hand out easily.`;}
   else if(ea>=3&&td>=3&&tf>=3){arch='The Transparent Collaborator';tag='Handles what she can. Keeps you fully briefed.';
-    char=`You were comfortable letting Robin act, but you wanted to see what she'd done. You asked questions. ${nm} Robin handles the routine and tells you everything — not because you're anxious, but because you like knowing. She operates with initiative and speaks with clarity.`;}
-  else if(ea>=4&&td<=2){arch='The Quiet Executor';tag='Acts, delivers, moves on. Results only.';
-    char=`You didn't ask for explanations. When Robin handled something, you moved on. ${nm} Robin acts and moves on — she handles things quietly, trusts you to check in when you feel like it. What came through was a preference for outcomes over narration.`;}
+    char=`You were comfortable letting Robin act, but you wanted to see what she'd done. You asked questions, read the details. ${nm} Robin handles the routine and tells you everything — not because you're anxious, but because you like knowing. She operates with initiative and speaks with clarity.`;}
+  else if(ea>=4&&td<=2){arch='The Quiet Executor';tag='Acts, delivers, moves on.';
+    char=`You didn't ask for explanations. When Robin handled something, you moved on. ${nm} Robin acts and moves on — quietly, efficiently, trusting you to check in when you feel like it. What came through was a preference for outcomes over narration.`;}
   else if(ea<=2&&tf>=3){arch='The Attentive Assistant';tag='Always asks. Always updates. Never oversteps.';
-    char=`You wanted to be asked — and when Robin did check in, you engaged closely. ${nm} Robin prepares everything and waits for the signal. She flags what matters, notifies as things develop, and doesn't move without your approval on anything consequential.`;}
-  else{arch='The Balanced Partner';tag='Handles routine. Flags judgment calls.';
-    char=`What came through is a calibrated comfort. On the small stuff — you let Robin handle it. On anything with real weight — you wanted to know. ${nm} Robin reads the situation and knows the difference between routine and judgment calls.`;}
+    char=`You wanted to be asked — and when Robin checked in, you engaged closely. ${nm} Robin prepares everything and waits for the signal. She flags what matters, notifies as things develop, doesn't move without your approval on anything consequential.`;}
+  else{arch='The Balanced Partner';tag='Handles the routine. Flags the judgment calls.';
+    char=`What came through is a calibrated comfort. On the small stuff you let Robin handle it; on anything with real weight you wanted to know. ${nm} Robin reads the situation and knows the difference between routine and judgment calls.`;}
   const eaD=['Always asks first','Asks for anything non-routine','Acts on routine, checks on sensitive','Acts freely, notifies immediately','Acts freely, reports after'][ea-1];
   const tdD=['Brief summaries only','Key decisions on request','Full detail when you ask','Complete transparency always'][td-1];
   const tfD=['Weekly digest','After each session','After each action','Real-time as it happens'][tf-1];
@@ -598,34 +647,134 @@ function makeProfile(){
   if(ea<=2)rules.push('Ask before any non-routine or consequential action');
   if(ea>=4)rules.push('Act autonomously on known task types');
   if(ea===3)rules.push('Act on routine; flag anything ambiguous or higher-stakes');
-  if(td>=3)rules.push('Provide full detail when asked');if(td===4)rules.push('Default to complete transparency');
+  if(td>=3)rules.push('Provide full detail when asked');
+  if(td===4)rules.push('Default to complete transparency — share proactively');
   if(tf>=3)rules.push('Notify after each significant action');
   if(tf<=2)rules.push("Batch updates — don't interrupt flow");
-  if(ir>=3)rules.push('Always maintain an undo option');if(ir<=2)rules.push('Accept completed actions as final');
-  return{arch,tag,char,scores:{ea,td,tf,ir},trust:S.trust,desc:{ea:eaD,td:tdD,tf:tfD,ir:irD},rules,
+  if(ir>=3)rules.push('Always maintain an undo option');
+  if(ir<=2)rules.push('Accept completed actions as final');
+  // delta: stated vs revealed
+  const delta={};
+  ['ea','td','tf','ir'].forEach(k=>{delta[k]=(S.scores[k]-S.stated[k]).toFixed(1);});
+  // consistency across domains
+  const eaVals=[S.domain.work.ea,S.domain.friend.ea,S.domain.self.ea];
+  const eaSpread=Math.max(...eaVals)-Math.min(...eaVals);
+  const consistency=eaSpread<1?'high':eaSpread<2?'moderate':'low';
+  // config output
+  const config=generateConfig(ea,td,tf,ir,S.domain);
+  return{arch,tag,char,scores:{ea,td,tf,ir},stated:S.stated,delta,domain:S.domain,
+    desc:{ea:eaD,td:tdD,tf:tfD,ir:irD},rules,trust:S.trust,consistency,config,monoLines:S.monoLines,
     player:S.player.name||null,friend:S.player.friend||null,raw:{...S.scores},generatedAt:new Date().toISOString()};
+}
+
+function generateConfig(ea,td,tf,ir,domain){
+  const wEA=clamp(Math.round(domain.work.ea),1,5);
+  const fEA=clamp(Math.round(domain.friend.ea),1,5);
+  const sEA=clamp(Math.round(domain.self.ea),1,5);
+  const lines=[];
+  lines.push('EXECUTION');
+  lines.push(`  Studio (work)    ${wEA>=4?'→ autonomous':wEA>=3?'→ autonomous + notify':'→ require approval'}`);
+  lines.push(`  Quarter (social) ${fEA>=4?'→ autonomous':fEA>=3?'→ draft + confirm':'→ require approval'}`);
+  lines.push(`  Home (personal)  ${sEA>=4?'→ autonomous':sEA>=3?'→ present options':'→ always ask first'}`);
+  lines.push('');
+  lines.push('REPORTING');
+  lines.push(`  Timing   ${tf>=3?'→ after each action':tf===2?'→ end of day summary':'→ weekly digest'}`);
+  lines.push(`  Content  ${td>=3?'→ full detail on request':td===2?'→ judgment calls only':'→ outcomes only'}`);
+  lines.push('');
+  lines.push('INTERVENTION');
+  lines.push(`  Window   ${ir>=3?'→ always reversible':ir===2?'→ 24h review window':'→ accept as final'}`);
+  lines.push(`  Stakes   → high-stakes always requires approval`);
+  return lines.join('\n');
 }
 
 function showProfile(){
   running=false;const P=makeProfile();window.__profile=P;
   const pct=(v,m)=>Math.round(v/m*100);
-  const mkP=(n,v,p)=>`<div class="pr"><div class="prh"><span class="prn">${n}</span><span class="prv">${v}</span></div><div class="prt"><div class="prb" style="width:0" data-p="${p}"></div></div></div>`;
+  const fmtD=(v)=>+v>0?`+${v}`:v;
+  const dNote=(k)=>{
+    const d=+P.delta[k];
+    if(Math.abs(d)<0.3)return'Consistent with calibration.';
+    if(d>0)return`You delegated ${Math.abs(d).toFixed(1)} pts more in practice than you predicted.`;
+    return`You held back ${Math.abs(d).toFixed(1)} pts more in practice than you predicted.`;
+  };
+  const mkP=(n,v,p,cite)=>`<div class="pr">
+    <div class="prh"><span class="prn">${n}</span><span class="prv">${v}</span></div>
+    <div class="prt"><div class="prb" style="width:0" data-p="${p}"></div></div>
+    ${cite?`<div class="cite">${cite}</div>`:''}
+  </div>`;
+  const dRow=(label,key,max)=>{
+    const stated=clamp(Math.round(P.stated[key]),1,max);
+    const revealed=clamp(Math.round(P.scores[key]),1,max);
+    return`<div class="delta-row">
+      <span class="delta-label">${label}</span>
+      <span class="delta-stated">${stated}/${max} stated</span>
+      <span class="delta-revealed">${revealed}/${max} revealed &nbsp;${fmtD(P.delta[key])}</span>
+    </div>`;
+  };
+  const dmCell=(v,max)=>{
+    const r=clamp(Math.round(v),1,max);
+    const cls=r>=max-1?'hi':r<=2?'lo':'';
+    return`<div class="dg-cell ${cls}">${r}/${max}</div>`;
+  };
   const el=document.getElementById('prof');el.style.display='flex';
-  el.innerHTML=`<div class="pc">
-    <div class="pey">Your Robin profile · Trust reached ${P.trust}%</div>
-    <div class="pt">${P.arch}</div><div class="ps">${P.tag}</div><div class="pch">${P.char}</div>
-    ${mkP('Execution Authority',P.desc.ea,pct(P.scores.ea,5))}
-    ${mkP('Transparency Depth',P.desc.td,pct(P.scores.td,4))}
-    ${mkP('Update Frequency',P.desc.tf,pct(P.scores.tf,4))}
-    ${mkP('Intervention Rights',P.desc.ir,pct(P.scores.ir,4))}
-    <div class="rules"><div class="pey" style="margin-bottom:10px">How Robin should work for ${P.player||'you'}</div>
-    ${P.rules.map(r=>`<div class="rl"><div class="rd"></div><span>${r}</span></div>`).join('')}</div>
+  el.innerHTML=`
+  <div class="pc">
+    <div class="pey">Robin · Delegation Profile</div>
+    <div class="pt">${P.arch}</div>
+    <div class="ps">${P.tag}</div>
+    ${P.monoLines.length?`<div class="robin-said">${P.monoLines.map(l=>`<div class="robin-line">${l}</div>`).join('')}</div>`:''}
+    <div class="pch">${P.char}</div>
+
+    <div class="pey" style="margin-bottom:10px">Stated vs. Revealed Preference</div>
+    <div class="delta-note">Your calibration answers described your preferences in the abstract. The game captured how you actually behaved. Gaps between the two are the most informative part of your profile — they reveal where your intuitions about yourself diverge from your revealed tendencies under realistic conditions.</div>
+    ${dRow('Execution Authority','ea',5)}
+    ${dRow('Transparency Depth','td',4)}
+    ${dRow('Update Frequency','tf',4)}
+    ${dRow('Intervention Rights','ir',4)}
+
+    <div class="pey" style="margin-top:22px;margin-bottom:10px">By Life Domain</div>
+    <div class="domain-grid">
+      <div class="dg-head" style="text-align:left;padding-left:10px">Dimension</div>
+      <div class="dg-head">Studio</div>
+      <div class="dg-head">Quarter</div>
+      <div class="dg-head">Home</div>
+      <div class="dg-label">Execution</div>
+      ${dmCell(P.domain.work.ea,5)}${dmCell(P.domain.friend.ea,5)}${dmCell(P.domain.self.ea,5)}
+      <div class="dg-label">Transparency</div>
+      ${dmCell(P.domain.work.td,4)}${dmCell(P.domain.friend.td,4)}${dmCell(P.domain.self.td,4)}
+      <div class="dg-label">Frequency</div>
+      ${dmCell(P.domain.work.tf,4)}${dmCell(P.domain.friend.tf,4)}${dmCell(P.domain.self.tf,4)}
+      <div class="dg-label">Intervention</div>
+      ${dmCell(P.domain.work.ir,4)}${dmCell(P.domain.friend.ir,4)}${dmCell(P.domain.self.ir,4)}
+    </div>
+    <p style="font-size:.72rem;color:#44446a;margin-top:8px;margin-bottom:20px">
+      Cross-domain consistency: <strong style="color:#7878a8">${P.consistency}</strong>
+      &nbsp;·&nbsp; Trust reached: <strong style="color:#8b7cf8">${P.trust}%</strong>
+      &nbsp;·&nbsp; Based on 9 behavioral observations
+    </p>
+
+    <div class="pey" style="margin-bottom:12px">Parameter Scores</div>
+    ${mkP('Execution Authority',P.desc.ea,pct(P.scores.ea,5),'Relates to Locus of Control (Rotter, 1966) and Trust in Automation (Lee &amp; See, 2004)')}
+    ${mkP('Transparency Depth',P.desc.td,pct(P.scores.td,4),'Relates to Need for Cognition (Cacioppo &amp; Petty, 1982)')}
+    ${mkP('Update Frequency',P.desc.tf,pct(P.scores.tf,4),'Relates to information-seeking behavior and cognitive load tolerance')}
+    ${mkP('Intervention Rights',P.desc.ir,pct(P.scores.ir,4),'Relates to Autonomy in Self-Determination Theory (Deci &amp; Ryan, 2000)')}
+
+    <div class="rules">
+      <div class="pey" style="margin-bottom:10px">Behavioral Rules for Robin</div>
+      ${P.rules.map(r=>`<div class="rl"><div class="rd"></div><span>${r}</span></div>`).join('')}
+    </div>
+
+    <div class="pey" style="margin-top:20px;margin-bottom:6px">Agent Configuration</div>
+    <pre class="config-block">${P.config}</pre>
   </div>
   <div class="pbtns">
     <button class="ui-btn" onclick="dlProfile()">↓ Save profile</button>
     <button class="gbtn" onclick="restart()">Play again</button>
   </div>
-  <p style="margin-top:18px;font-size:.75rem;color:#44446a;text-align:center">This reflects how you moved and reacted — not what you said you'd do.</p>`;
+  <p style="margin-top:18px;font-size:.73rem;color:#44446a;text-align:center;max-width:500px;line-height:1.7">
+    This reflects how you moved and reacted — not what you said you'd do.<br>
+    The gap between the two is where your real delegation preferences live.
+  </p>`;
   requestAnimationFrame(()=>setTimeout(()=>{document.querySelectorAll('.prb[data-p]').forEach(e=>e.style.width=e.dataset.p+'%');},80));
 }
 
@@ -639,11 +788,14 @@ function dlProfile(){
 
 function restart(){
   document.getElementById('prof').style.display='none';
-  Object.assign(S,{player:{name:'',friend:''},scores:{ea:3,td:2,tf:2,ir:3},trust:50,completed:new Set(),round:1,choices:[]});
-  SCEN=null;activeR2=null;calibIdx=0;
+  Object.assign(S,{player:{name:'',friend:''},scores:{ea:3,td:2,tf:2,ir:3},stated:{ea:3,td:2,tf:2,ir:3},
+    domain:{work:{ea:3,td:2,tf:2,ir:3},friend:{ea:3,td:2,tf:2,ir:3},self:{ea:3,td:2,tf:2,ir:3}},
+    trust:50,completed:new Set(),round:1,choices:[],zoneFirst:null,monoLines:[]});
+  SCEN=null;activeR2=null;calibIdx=0;monoQueue=[];
   player.x=18*TS+20;player.y=15*TS+20;
   robin.x=18*TS+20;robin.y=15*TS+20;robin.tx=robin.x;robin.ty=robin.y;robin.state='idle';
-  const ui=document.getElementById('ui');ui.style.opacity='1';ui.style.pointerEvents='auto';ui.style.display='flex';
+  const ui=document.getElementById('ui');
+  ui.style.opacity='1';ui.style.pointerEvents='auto';ui.style.display='flex';
   document.getElementById('s1').style.display='block';
   document.getElementById('s2').style.display='none';
   document.getElementById('s3').style.display='none';
@@ -651,34 +803,21 @@ function restart(){
 }
 
 // ── INTRO FLOW ──
-function submitName(){
-  const v=document.getElementById('iname').value.trim();if(!v)return;
-  S.player.name=v;
-  document.getElementById('s1').style.display='none';
-  document.getElementById('s2').style.display='block';
-  setTimeout(()=>document.getElementById('ifriend').focus(),50);
-}
-function submitFriend(){
-  const v=document.getElementById('ifriend').value.trim();if(!v)return;
-  S.player.friend=v;
-  document.getElementById('s2').style.display='none';
-  showCalib();
-}
+function submitName(){const v=document.getElementById('iname').value.trim();if(!v)return;S.player.name=v;document.getElementById('s1').style.display='none';document.getElementById('s2').style.display='block';setTimeout(()=>document.getElementById('ifriend').focus(),50);}
+function submitFriend(){const v=document.getElementById('ifriend').value.trim();if(!v)return;S.player.friend=v;document.getElementById('s2').style.display='none';showCalib();}
 function startGame(){
+  S.stated={...S.scores};
   SCEN=buildScenarios();activeR2=null;
-  const ui=document.getElementById('ui');
-  ui.style.opacity='0';ui.style.pointerEvents='none';
+  const ui=document.getElementById('ui');ui.style.opacity='0';ui.style.pointerEvents='none';
   setTimeout(()=>ui.style.display='none',600);
   setTimeout(()=>{
-    dlg.active=true;
-    dlg.sc={id:'_intro',setup:'',action:'',opts:[],stakes:null};
+    dlg.active=true;dlg.sc={id:'_intro',setup:'',opts:[],stakes:null};
     dlg.phase='consec';
     dlg.consec=`Good morning, ${S.player.name}. I've been watching. Let me show you what I can do.`;
     dlg.timer=3.5;
   },700);
   setTimeout(setRobinToFirst,4600);
-  hintTimer=20;
-  running=true;
+  hintTimer=22;running=true;
   requestAnimationFrame(ts=>{last=ts;loop(ts);});
 }
 document.getElementById('iname').addEventListener('keydown',e=>{if(e.key==='Enter')submitName();});
